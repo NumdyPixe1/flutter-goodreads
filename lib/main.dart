@@ -2,14 +2,34 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:numdao_finalproject/views/home_page.dart';
+import 'package:numdao_finalproject/home/home_binding.dart';
+import 'package:numdao_finalproject/signin/signin_binding.dart';
+import 'package:numdao_finalproject/welcome/welcome_binding.dart';
+import 'package:numdao_finalproject/home/home_page.dart';
+import 'package:numdao_finalproject/signin/signin_page.dart';
+import 'package:numdao_finalproject/welcome/welcome_page.dart';
 
 void main() {
   runApp(DevicePreview(
     enabled: !kReleaseMode,
     builder: (context) => GetMaterialApp(
-      title: 'Steam App project',
-      home: HomePage(),
+      title: 'Good read App project',
+      initialRoute: '/welcome',
+      getPages: [
+        GetPage(
+            name: '/welcome',
+            page: () => WelcomePage(),
+            binding: WelcomeBinding()),
+        GetPage(
+            name: '/signin',
+            page: () => SignInPage(),
+            binding: SignInBinding()),
+        GetPage(
+          name: '/home',
+          page: () => HomePage(),
+          binding: HomeBinding(),
+        ),
+      ],
     ),
   ));
 }
