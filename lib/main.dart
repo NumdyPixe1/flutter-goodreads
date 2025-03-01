@@ -14,12 +14,10 @@ void main() {
     enabled: !kReleaseMode,
     builder: (context) => GetMaterialApp(
       title: 'Good read App project',
-      initialRoute: '/welcome',
+      initialRoute: '/',
       getPages: [
         GetPage(
-            name: '/welcome',
-            page: () => WelcomePage(),
-            binding: WelcomeBinding()),
+            name: '/', page: () => WelcomePage(), binding: WelcomeBinding()),
         GetPage(
             name: '/signin',
             page: () => SignInPage(),

@@ -21,7 +21,7 @@ class WelcomePage extends GetView<WelcomeController> {
                   style: ElevatedButton.styleFrom(
                       side: BorderSide(color: Color.fromRGBO(137, 106, 22, 1)),
                       backgroundColor: Color.fromRGBO(137, 106, 22, 0.5)),
-                  onPressed: () {},
+                  onPressed: controller.onHomePressed,
                   child: Text(
                     'Continue with Amazon',
                     style: Theme.of(context)

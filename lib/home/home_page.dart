@@ -12,7 +12,7 @@ class HomePage extends GetView<HomeController> {
       //     ]),
       backgroundColor: Color.fromRGBO(27, 27, 27, 1),
       appBar: AppBar(
-        toolbarHeight: 70,
+        // toolbarHeight: 70,
         backgroundColor: Color.fromRGBO(40, 35, 31, 1),
         title: SizedBox(
           height: 40,
@@ -32,6 +32,7 @@ class HomePage extends GetView<HomeController> {
             child: Icon(
               Icons.notifications_none_rounded,
               size: 32,
+              color: Colors.white,
             ),
           )
         ],
@@ -67,7 +68,7 @@ class HomePage extends GetView<HomeController> {
                                 children: [
                                   TextButton(
                                       onPressed: () {},
-                                      child: Text('Numdy',
+                                      child: Text('Kanin Nitiwong',
                                           style: Theme.of(context)
                                               .textTheme
                                               .titleSmall
@@ -113,7 +114,7 @@ class HomePage extends GetView<HomeController> {
                               ),
                               Row(
                                 children: [
-                                  Text(' อา. at 20:45',
+                                  Text(' ส. at 17:22',
                                       style: Theme.of(context)
                                           .textTheme
                                           .titleSmall
@@ -132,9 +133,7 @@ class HomePage extends GetView<HomeController> {
                       Row(
                         children: [
                           Padding(padding: EdgeInsets.all(8.0)),
-                          Image.network(
-                              scale: 2,
-                              'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'),
+                          Image.asset(scale: 14, 'assets/images/books/1.jpg'),
                           SizedBox(
                             width: 20,
                           ),
@@ -142,14 +141,17 @@ class HomePage extends GetView<HomeController> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                'Book title',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleMedium
-                                    ?.copyWith(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w700),
+                              SizedBox(
+                                width: 240,
+                                child: Text(
+                                  'ชีวิตน่ะ...ไม่ต้องพยายามไปซะทุกเรื่องหรอกนะ',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .titleMedium
+                                      ?.copyWith(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w700),
+                                ),
                               ),
                               SizedBox(
                                 height: 15,
@@ -167,7 +169,8 @@ class HomePage extends GetView<HomeController> {
                                   ),
                                   TextButton(
                                       onPressed: () {},
-                                      child: Text('Numdy',
+                                      child: Text(
+                                          'ไทระ โคเก็น, ภาณุพันธ์ ปัญญาใจ',
                                           style: Theme.of(context)
                                               .textTheme
                                               .titleSmall
@@ -258,7 +261,7 @@ class HomePage extends GetView<HomeController> {
                               children: [
                                 TextButton(
                                     onPressed: () {},
-                                    child: Text('Numdy',
+                                    child: Text('เอกภพ สิทธิวรรณธนะ',
                                         style: Theme.of(context)
                                             .textTheme
                                             .titleSmall
@@ -279,7 +282,7 @@ class HomePage extends GetView<HomeController> {
                             ),
                             Row(
                               children: [
-                                Text(' อา. at 20:45',
+                                Text(' พฤ. at 17:15',
                                     style: Theme.of(context)
                                         .textTheme
                                         .titleSmall
@@ -298,9 +301,7 @@ class HomePage extends GetView<HomeController> {
                     Row(
                       children: [
                         Padding(padding: EdgeInsets.all(8.0)),
-                        Image.network(
-                            scale: 2,
-                            'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'),
+                        Image.asset(scale: 18, 'assets/images/books/2.jpg'),
                         SizedBox(
                           width: 20,
                         ),
@@ -308,14 +309,17 @@ class HomePage extends GetView<HomeController> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Book title',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleMedium
-                                  ?.copyWith(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w700),
+                            SizedBox(
+                              width: 240,
+                              child: Text(
+                                'On Leadership: Lessons for the 21st Century',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleMedium
+                                    ?.copyWith(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w700),
+                              ),
                             ),
                             SizedBox(
                               height: 15,
@@ -333,7 +337,7 @@ class HomePage extends GetView<HomeController> {
                                 ),
                                 TextButton(
                                     onPressed: () {},
-                                    child: Text('Numdy',
+                                    child: Text('Tony Blair',
                                         style: Theme.of(context)
                                             .textTheme
                                             .titleSmall
@@ -425,7 +429,7 @@ class HomePage extends GetView<HomeController> {
                               children: [
                                 TextButton(
                                     onPressed: () {},
-                                    child: Text('Numdy',
+                                    child: Text('Seamonkey',
                                         style: Theme.of(context)
                                             .textTheme
                                             .titleSmall
@@ -465,9 +469,7 @@ class HomePage extends GetView<HomeController> {
                     Row(
                       children: [
                         Padding(padding: EdgeInsets.all(8.0)),
-                        Image.network(
-                            scale: 2,
-                            'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'),
+                        Image.asset(scale: 14, 'assets/images/books/3.jpg'),
                         SizedBox(
                           width: 20,
                         ),
@@ -476,7 +478,7 @@ class HomePage extends GetView<HomeController> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Book title',
+                              'บ้านพักใจโอบไออุ่นทะเล',
                               style: Theme.of(context)
                                   .textTheme
                                   .titleMedium
@@ -490,7 +492,7 @@ class HomePage extends GetView<HomeController> {
                             Row(
                               children: [
                                 Text(
-                                  'by ',
+                                  'by',
                                   style: Theme.of(context)
                                       .textTheme
                                       .titleMedium
@@ -500,7 +502,7 @@ class HomePage extends GetView<HomeController> {
                                 ),
                                 TextButton(
                                     onPressed: () {},
-                                    child: Text('Numdy',
+                                    child: Text('Akio Morisawa',
                                         style: Theme.of(context)
                                             .textTheme
                                             .titleSmall
