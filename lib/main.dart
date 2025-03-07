@@ -3,6 +3,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:numdao_finalproject/home/home_binding.dart';
+import 'package:numdao_finalproject/notify/notify_binding.dart';
+import 'package:numdao_finalproject/notify/notify_page.dart';
 import 'package:numdao_finalproject/signin/signin_binding.dart';
 import 'package:numdao_finalproject/welcome/welcome_binding.dart';
 import 'package:numdao_finalproject/home/home_page.dart';
@@ -27,6 +29,11 @@ void main() {
           page: () => HomePage(),
           binding: HomeBinding(),
         ),
+        GetPage(
+          name: '/notify',
+          page: () => NotifyPage(),
+          binding: NotifyBinding(),
+        )
       ],
     ),
   ));
