@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:numdao_finalproject/home/home_controller.dart';
+import 'package:numdao_finalproject/home/app_controller.dart';
 
-class AppbarWidget extends GetView<HomeController>
+class AppbarWidget extends GetView<AppController>
     implements PreferredSizeWidget {
   const AppbarWidget({super.key});
   //ลืม
@@ -12,7 +12,6 @@ class AppbarWidget extends GetView<HomeController>
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      // toolbarHeight: 70,
       backgroundColor: Color.fromRGBO(40, 35, 31, 1),
       title: SizedBox(
         height: 40,

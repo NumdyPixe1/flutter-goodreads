@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:numdao_finalproject/signin/signin_controller.dart';
 
 class SignInPage extends GetView<SignInController> {
+  const SignInPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,21 +33,31 @@ class SignInPage extends GetView<SignInController> {
                 onChanged: null,
                 validator: controller.emailValidator,
                 style: TextStyle(color: Colors.white),
-                decoration: InputDecoration(labelText: 'E-mail'),
+                decoration: InputDecoration(
+                    focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white)),
+                    floatingLabelStyle:
+                        TextStyle(color: Color.fromRGBO(60, 143, 132, 1)),
+                    labelText: 'E-mail'),
               ),
               SizedBox(
                 height: 48,
               ),
               TextFormField(
+                  obscureText: true,
                   key: controller.passwordKey,
                   onChanged: controller.onPasswordChanged,
                   validator: controller.passwordValidator,
                   style: TextStyle(color: Colors.white),
                   decoration: InputDecoration(
-                      labelText: 'Goodreads password',
-                      focusColor: Color.fromRGBO(60, 143, 132, 1)
-                      //labelStyle: TextStyle(color: Color.fromRGBO(60, 143, 132, 1))
-                      )),
+                    // suffixIcon:
+                    //   ,
+                    focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white)),
+                    labelText: 'Goodreads password',
+                    floatingLabelStyle:
+                        TextStyle(color: Color.fromRGBO(60, 143, 132, 1)),
+                  )),
               SizedBox(
                 height: 24,
               ),

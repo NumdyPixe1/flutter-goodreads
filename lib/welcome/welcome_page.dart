@@ -8,8 +8,7 @@ class WelcomePage extends GetView<WelcomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromRGBO(27, 27, 27, 1),
-      body: Padding(
-        padding: const EdgeInsets.all(24.0),
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -17,12 +16,17 @@ class WelcomePage extends GetView<WelcomeController> {
             SizedBox(
               width: 300,
               height: 45,
-              child: ElevatedButton(
+              child: ElevatedButton.icon(
+                  icon: Image.asset(
+                    'assets/images/icons/amazon.png',
+                    color: Colors.white,
+                    scale: 50,
+                  ),
                   style: ElevatedButton.styleFrom(
                       side: BorderSide(color: Color.fromRGBO(137, 106, 22, 1)),
                       backgroundColor: Color.fromRGBO(137, 106, 22, 0.5)),
                   onPressed: controller.onHomePressed,
-                  child: Text(
+                  label: Text(
                     'Continue with Amazon',
                     style: Theme.of(context)
                         .textTheme

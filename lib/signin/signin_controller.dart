@@ -37,7 +37,7 @@ class SignInController extends GetxController {
     if (!formKey.currentState!.validate()) {
       return;
     }
-    Get.toNamed('/home');
+    Get.offAllNamed('/app');
     Get.snackbar('Log in successfully', 'Welcome back');
     // if (emailController.text == 'abc') {
     //   Get.toNamed('/home');

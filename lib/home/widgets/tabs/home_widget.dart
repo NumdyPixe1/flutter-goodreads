@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:numdao_finalproject/widget/appbar_widget.dart';
-import 'package:numdao_finalproject/home/home_controller.dart';
-import 'package:numdao_finalproject/widget/bottom_nav_widget.dart';
+import 'package:numdao_finalproject/home/widgets/tabs/home_controller.dart';
 
-class HomePage extends GetView<HomeController> {
+class HomeWidget extends GetView<HomeController> {
+  const HomeWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromRGBO(27, 27, 27, 1),
-      appBar: AppbarWidget(),
-      bottomNavigationBar: BottomNavWidget(),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -379,17 +377,28 @@ class HomePage extends GetView<HomeController> {
             Row(
               children: [
                 TextButton(
-                    onPressed: () {},
+                    onPressed: controller.onLikePressed,
                     child: Text('Like',
                         style: Theme.of(context).textTheme.titleSmall?.copyWith(
                             color: Color.fromRGBO(60, 143, 132, 1)))),
                 TextButton(
                     onPressed: () {},
                     child: Text('Comment',
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleSmall
-                            ?.copyWith(color: Color.fromRGBO(60, 143, 132, 1))))
+                        style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                            color: Color.fromRGBO(60, 143, 132, 1)))),
+                Icon(
+                    size: 20,
+                    color: Color.fromRGBO(60, 143, 132, 1),
+                    Icons.thumb_up),
+                SizedBox(
+                  width: 10,
+                ),
+                Obx(
+                  () => Text(
+                    '${controller.like}',
+                    style: TextStyle(color: Color.fromRGBO(60, 143, 132, 1)),
+                  ),
+                )
               ],
             ),
             SizedBox(

@@ -6,6 +6,6 @@ class WelcomeController extends GetxController {
   }
 
   void onHomePressed() {
-    Get.offAllNamed('/home');
+    Get.offAllNamed('/app');
   }
 }
