@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 
 class WelcomeController extends GetxController {
   void onSignInPressed() {
-    Get.offAllNamed('/signin');
+    Get.toNamed('/signin');
   }
 
   void onHomePressed() {

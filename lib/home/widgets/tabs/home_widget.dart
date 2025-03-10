@@ -215,7 +215,7 @@ class HomeWidget extends GetView<HomeController> {
               Row(
                 children: [
                   TextButton(
-                      onPressed: () {},
+                      onPressed: controller.onLikePressed,
                       child: Text('Like',
                           style: Theme.of(context)
                               .textTheme
@@ -230,6 +230,19 @@ class HomeWidget extends GetView<HomeController> {
                               .titleSmall
                               ?.copyWith(
                                   color: Color.fromRGBO(60, 143, 132, 1)))),
+                  Icon(
+                      size: 20,
+                      color: Color.fromRGBO(60, 143, 132, 1),
+                      Icons.thumb_up),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Obx(
+                    () => Text(
+                      '${controller.like}',
+                      style: TextStyle(color: Color.fromRGBO(60, 143, 132, 1)),
+                    ),
+                  )
                 ],
               ),
               SizedBox(
