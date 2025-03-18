@@ -2,12 +2,12 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:numdao_finalproject/home/app_binding.dart';
+import 'package:numdao_finalproject/app/app_binding.dart';
 import 'package:numdao_finalproject/notify/notify_binding.dart';
 import 'package:numdao_finalproject/notify/notify_page.dart';
 import 'package:numdao_finalproject/signin/signin_binding.dart';
 import 'package:numdao_finalproject/welcome/welcome_binding.dart';
-import 'package:numdao_finalproject/home/app_page.dart';
+import 'package:numdao_finalproject/app/app_page.dart';
 import 'package:numdao_finalproject/signin/signin_page.dart';
 import 'package:numdao_finalproject/welcome/welcome_page.dart';
 

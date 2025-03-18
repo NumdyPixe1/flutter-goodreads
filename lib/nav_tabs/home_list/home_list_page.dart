@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:numdao_finalproject/home/widgets/tabs/home_controller.dart';
+import 'package:numdao_finalproject/nav_tabs/home_list/home_list_controller.dart';
 
-class HomeWidget extends GetView<HomeController> {
-  const HomeWidget({super.key});
+class HomeListPage extends GetView<HomeListController> {
+  const HomeListPage({super.key});
 
   @override
   Widget build(BuildContext context) {

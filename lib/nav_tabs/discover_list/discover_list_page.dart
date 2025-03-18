@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:numdao_finalproject/nav_tabs/discover_list/discover_list_controller.dart';
 
-class DiscoverWidget extends GetView {
-  const DiscoverWidget({super.key});
+class DiscoverListPage extends GetView<DiscoverListController> {
+  const DiscoverListPage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

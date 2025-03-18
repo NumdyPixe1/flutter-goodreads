@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:numdao_finalproject/nav_tabs/mybooks_list/mybooks_list_controller.dart';
 
-class MybooksWidget extends GetView {
-  const MybooksWidget({super.key});
+class MybooksListPage extends GetView<MybooksListController> {
+  const MybooksListPage({super.key});
 
   @override
   Widget build(BuildContext context) {

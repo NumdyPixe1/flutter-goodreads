@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:numdao_finalproject/nav_tabs/search_list/search_list_controller.dart';
 
-class SearchWidget extends GetView {
-  const SearchWidget({super.key});
+class SearchListPage extends GetView<SearchListController> {
+  const SearchListPage({super.key});
 
   @override
   Widget build(BuildContext context) {

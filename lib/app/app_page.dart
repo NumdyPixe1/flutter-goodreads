@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:numdao_finalproject/home/widgets/appbar_widget.dart';
-import 'package:numdao_finalproject/home/app_controller.dart';
-import 'package:numdao_finalproject/home/widgets/bottom_nav_widget.dart';
-import 'package:numdao_finalproject/home/widgets/tabs/discover_widget.dart';
-import 'package:numdao_finalproject/home/widgets/tabs/home_widget.dart';
-import 'package:numdao_finalproject/home/widgets/tabs/more_widget.dart';
-import 'package:numdao_finalproject/home/widgets/tabs/mybooks_widget.dart';
-import 'package:numdao_finalproject/home/widgets/tabs/search_widget.dart';
+import 'package:numdao_finalproject/app/app_controller.dart';
+import 'package:numdao_finalproject/widgets/appbar_widget.dart';
+import 'package:numdao_finalproject/widgets/bottom_nav_widget.dart';
+import 'package:numdao_finalproject/nav_tabs/discover_list/discover_list_page.dart';
+import 'package:numdao_finalproject/nav_tabs/home_list/home_list_page.dart';
+import 'package:numdao_finalproject/widgets/more_widget.dart';
+import 'package:numdao_finalproject/nav_tabs/mybooks_list/mybooks_list_page.dart';
+import 'package:numdao_finalproject/nav_tabs/search_list/search_list_page.dart';
 
 class AppPage extends GetView<AppController> {
   const AppPage({super.key});
 
   final _bodies = const [
-    HomeWidget(),
-    MybooksWidget(),
-    DiscoverWidget(),
-    SearchWidget(),
-    MoreWidget()
+    HomeListPage(),
+    MybooksListPage(),
+    DiscoverListPage(),
+    SearchListPage(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -61,8 +60,6 @@ class AppPage extends GetView<AppController> {
                         ? Icons.more_horiz
                         : Icons.more_horiz_outlined))
               ],
-            ))
-        //Obx(() => BottomNavigationWidget()),
-        );
+            )));
   }
 }
