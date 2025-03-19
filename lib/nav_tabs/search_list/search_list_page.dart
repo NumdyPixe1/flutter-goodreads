@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:numdao_finalproject/nav_tabs/search_list/search_list_controller.dart';
+import 'package:numdao_finalproject/widgets/appbar_widget.dart';
 
 class SearchListPage extends GetView<SearchListController> {
   const SearchListPage({super.key});
@@ -8,6 +9,7 @@ class SearchListPage extends GetView<SearchListController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // appBar: AppbarWidget(),
       backgroundColor: Color.fromRGBO(27, 27, 27, 1),
       body: Center(
         child: Padding(

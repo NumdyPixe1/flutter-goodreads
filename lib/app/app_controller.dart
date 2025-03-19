@@ -8,6 +8,8 @@ import 'package:numdao_finalproject/nav_tabs/mybooks_list/mybooks_list_binding.d
 import 'package:numdao_finalproject/nav_tabs/mybooks_list/mybooks_list_page.dart';
 import 'package:numdao_finalproject/nav_tabs/search_list/search_list_binding.dart';
 import 'package:numdao_finalproject/nav_tabs/search_list/search_list_page.dart';
+import 'package:numdao_finalproject/shelves&tags/shelves_binding.dart';
+import 'package:numdao_finalproject/shelves&tags/shelves_page.dart';
 
 class AppController extends GetxController {
   final _selectedIndex = 0.obs;
@@ -21,6 +23,7 @@ class AppController extends GetxController {
     Get.toNamed('/notify');
   }
 
+//nav
   Route? onGenerateRoute(RouteSettings setting) {
     if (setting.name == '/homelist') {
       return GetPageRoute(
@@ -45,6 +48,12 @@ class AppController extends GetxController {
           settings: setting,
           page: () => SearchListPage(),
           binding: SearchListBinding());
+    }
+    if (setting.name == '/shelves') {
+      return GetPageRoute(
+          settings: setting,
+          page: () => ShelvesPage(),
+          binding: ShelvesBinding());
     }
     return null;
   }

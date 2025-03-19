@@ -64,6 +64,7 @@ flutter:
     - assets/images/books/1.jpg
     - assets/images/books/2.jpg
     - assets/images/books/3.jpg
+    - assets/images/books/4.jpg
     - assets/images/icons/amazon.png
 
       #   - images/a_dot_ham.jpeg
