@@ -5,8 +5,6 @@ import 'package:get/get.dart';
 import 'package:numdao_finalproject/app/app_binding.dart';
 import 'package:numdao_finalproject/notify/notify_binding.dart';
 import 'package:numdao_finalproject/notify/notify_page.dart';
-import 'package:numdao_finalproject/shelves&tags/shelves_binding.dart';
-import 'package:numdao_finalproject/shelves&tags/shelves_page.dart';
 import 'package:numdao_finalproject/signin/signin_binding.dart';
 import 'package:numdao_finalproject/welcome/welcome_binding.dart';
 import 'package:numdao_finalproject/app/app_page.dart';
@@ -35,12 +33,7 @@ void main() {
           name: '/notify',
           page: () => NotifyPage(),
           binding: NotifyBinding(),
-        ),
-        // GetPage(
-        //   name: '/shelves',
-        //   page: () => ShelvesPage(),
-        //   binding: ShelvesBinding(),
-        // )
+        )
       ],
     ),
   ));

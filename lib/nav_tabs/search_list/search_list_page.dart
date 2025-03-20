@@ -9,7 +9,7 @@ class SearchListPage extends GetView<SearchListController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppbarWidget(),
+      appBar: AppbarWidget(),
       backgroundColor: Color.fromRGBO(27, 27, 27, 1),
       body: Center(
         child: Padding(

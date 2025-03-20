@@ -9,8 +9,8 @@ class HomeListPage extends GetView<HomeListController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppbarWidget(),
       backgroundColor: Color.fromRGBO(27, 27, 27, 1),
+      appBar: AppbarWidget(),
       body: SingleChildScrollView(
         child: Column(
           children: [

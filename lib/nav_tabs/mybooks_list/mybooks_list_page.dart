@@ -9,7 +9,7 @@ class MybooksListPage extends GetView<MybooksListController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppbarWidget(),
+      appBar: AppbarWidget(),
       backgroundColor: Color.fromRGBO(27, 27, 27, 1),
       body: Center(
         child: Column(
@@ -19,8 +19,7 @@ class MybooksListPage extends GetView<MybooksListController> {
             SizedBox(
               height: 24,
             ),
-            _textButtonItem(
-                context, 'shelves', controller.onOpenPageInsideTabPressed),
+            _textButtonItem(context, 'shelves'),
             SizedBox(
               height: 24,
             ),
@@ -50,8 +49,7 @@ class MybooksListPage extends GetView<MybooksListController> {
             SizedBox(
               height: 10,
             ),
-            _textButtonItem(
-                context, 'tags', controller.onOpenPageInsideTabPressed),
+            _textButtonItem(context, 'tags'),
             SizedBox(
               height: 24,
             ),
@@ -121,10 +119,9 @@ class MybooksListPage extends GetView<MybooksListController> {
         ));
   }
 
-  TextButton _textButtonItem(
-      BuildContext context, String titleButton, var onPressedButton) {
+  TextButton _textButtonItem(BuildContext context, String titleButton) {
     return TextButton(
-        onPressed: onPressedButton,
+        onPressed: () {},
         child: Column(
           children: [
             Text(titleButton.toUpperCase(),

@@ -9,40 +9,37 @@ class AppPage extends GetView<AppController> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Color.fromRGBO(27, 27, 27, 1),
-        // appBar: AppbarWidget(),
         body: Obx(() => IndexedStack(
               index: controller.selectedIndex,
               children: [
                 Navigator(
-                  //key: Get.nestedKey(0),
+                  key: Get.nestedKey(0),
                   initialRoute: '/homelist',
                   onGenerateRoute: controller.onGenerateRoute,
                 ),
                 Navigator(
-                  //key: Get.nestedKey(1),
+                  key: Get.nestedKey(1),
                   initialRoute: '/mybookslist',
                   onGenerateRoute: controller.onGenerateRoute,
                 ),
                 Navigator(
-                  //key: Get.nestedKey(2),
+                  key: Get.nestedKey(2),
                   initialRoute: '/discoverlist',
                   onGenerateRoute: controller.onGenerateRoute,
                 ),
                 Navigator(
-                  // key: Get.nestedKey(3),
+                  key: Get.nestedKey(3),
                   initialRoute: '/searchlist',
                   onGenerateRoute: controller.onGenerateRoute,
                 ),
-                Navigator(),
               ],
             )),
-        //***BottomNav***
         bottomNavigationBar: Obx(() => BottomNavigationBar(
-              type: BottomNavigationBarType.fixed,
+              onTap: controller.onBottomNavigationBarItemTap,
               currentIndex: controller.selectedIndex,
+              type: BottomNavigationBarType.fixed,
               selectedItemColor: Colors.white,
               unselectedItemColor: Colors.white,
-              onTap: controller.onBottomNavigationBarItemTap,
               backgroundColor: Color.fromRGBO(40, 35, 31, 1),
               items: [
                 BottomNavigationBarItem(
@@ -68,11 +65,10 @@ class AppPage extends GetView<AppController> {
                         ? Icons.search
                         : Icons.search_outlined)),
                 // BottomNavigationBarItem(
-                //   label: 'More',
-                //   icon: Icon(controller.selectedIndex == 4
-                //       ? Icons.more_horiz
-                //       : Icons.more_horiz_outlined),
-                // ),
+                //     label: 'More',
+                //     icon: Icon(controller.selectedIndex == 4
+                //         ? Icons.more_horiz
+                //         : Icons.more_horiz_outlined))
               ],
             )));
   }
