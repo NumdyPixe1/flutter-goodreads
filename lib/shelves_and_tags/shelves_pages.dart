@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:numdao_finalproject/shelves_and_tags/shelves_controller.dart';
 
 class ShelvesPages extends GetView<ShelvesController> {
+  const ShelvesPages({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

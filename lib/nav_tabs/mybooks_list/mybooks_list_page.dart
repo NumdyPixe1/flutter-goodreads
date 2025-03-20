@@ -19,7 +19,8 @@ class MybooksListPage extends GetView<MybooksListController> {
             SizedBox(
               height: 24,
             ),
-            _textButtonItem(context, 'shelves'),
+            _textButtonItem(
+                context, 'shelves', controller.onOpenPageInsideTabPressed),
             SizedBox(
               height: 24,
             ),
@@ -49,7 +50,8 @@ class MybooksListPage extends GetView<MybooksListController> {
             SizedBox(
               height: 10,
             ),
-            _textButtonItem(context, 'tags'),
+            _textButtonItem(
+                context, 'tags', controller.onOpenPageInsideTabPressed),
             SizedBox(
               height: 24,
             ),
@@ -119,9 +121,10 @@ class MybooksListPage extends GetView<MybooksListController> {
         ));
   }
 
-  TextButton _textButtonItem(BuildContext context, String titleButton) {
+  TextButton _textButtonItem(
+      BuildContext context, String titleButton, var onPressedButton) {
     return TextButton(
-        onPressed: () {},
+        onPressed: onPressedButton,
         child: Column(
           children: [
             Text(titleButton.toUpperCase(),

@@ -33,7 +33,7 @@ void main() {
           name: '/notify',
           page: () => NotifyPage(),
           binding: NotifyBinding(),
-        )
+        ),
       ],
     ),
   ));
