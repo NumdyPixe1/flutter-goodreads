@@ -16,7 +16,39 @@ class AppController extends GetxController {
   int get selectedIndex => _selectedIndex.value;
 
   void onBottomNavigationBarItemTap(int index) {
-    _selectedIndex.value = index;
+    if (selectedIndex == index) {
+      final navKey = Get.keys[index];
+      //หาตำแหน่ง route ของ user จาก nav stack
+      String? currentRoute;
+      navKey?.currentState?.popUntil((route) {
+        currentRoute = route.settings.name;
+        return true;
+      });
+      //หา root route
+      String? rootRoute;
+      switch (index) {
+        case 0:
+          rootRoute = '/homelist';
+          break;
+        case 1:
+          rootRoute = '/mybookslist';
+          break;
+        case 2:
+          rootRoute = '/discoverlist';
+          break;
+        case 3:
+          rootRoute = '/searchlist';
+          break;
+      }
+      //ดึงหน้า stack ออกไปทีล่ะอัน จนกว่าจะเจอ root route
+      if (currentRoute != rootRoute) {
+        navKey?.currentState?.popUntil((route) {
+          return route.settings.name == rootRoute;
+        });
+      }
+    } else {
+      _selectedIndex.value = index;
+    }
   }
 
   void onNotifyPressed() {
@@ -41,12 +73,6 @@ class AppController extends GetxController {
           settings: setting,
           page: () => DiscoverListPage(),
           binding: DiscoverListBinding());
-    }
-    if (setting.name == '/searchlist') {
-      return GetPageRoute(
-          settings: setting,
-          page: () => SearchListPage(),
-          binding: SearchListBinding());
     }
     if (setting.name == '/searchlist') {
       return GetPageRoute(

@@ -10,6 +10,14 @@ class ShelvesPages extends GetView<ShelvesController> {
     return Scaffold(
       backgroundColor: Color.fromRGBO(27, 27, 27, 1),
       appBar: AppBar(
+        actions: <Widget>[
+          IconButton(
+              iconSize: 25,
+              color: Colors.white,
+              onPressed: controller.onNotifyPressed,
+              icon: Icon(Icons.notifications_none_rounded))
+        ],
+        //controller.onNotifyPressed
         leading: BackButton(
           color: Colors.white,
         ),
@@ -42,7 +50,6 @@ class ShelvesPages extends GetView<ShelvesController> {
 
 Widget bookImage(String imagePath) {
   return ClipRRect(
-    borderRadius: BorderRadius.circular(5),
     child: Image.asset(imagePath, width: 50, height: 70, fit: BoxFit.cover),
   );
 }
