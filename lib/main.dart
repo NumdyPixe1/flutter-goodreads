@@ -1,10 +1,13 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 import 'package:numdao_finalproject/app/app_binding.dart';
 import 'package:numdao_finalproject/notify/notify_binding.dart';
 import 'package:numdao_finalproject/notify/notify_page.dart';
+import 'package:numdao_finalproject/post/post_service.dart';
+import 'package:numdao_finalproject/post/post_service_mock.dart';
 import 'package:numdao_finalproject/signin/signin_binding.dart';
 import 'package:numdao_finalproject/welcome/welcome_binding.dart';
 import 'package:numdao_finalproject/app/app_page.dart';
@@ -39,6 +42,10 @@ void main() {
   ));
 }
 
+void _init() {
+  Get.put(FlutterSecureStorage(), permanent: true);
+  // Get.lazyPut<PostService>(() => PostServiceMock());
+}
 // class MyApp extends StatelessWidget {
 //   const MyApp({super.key});
 

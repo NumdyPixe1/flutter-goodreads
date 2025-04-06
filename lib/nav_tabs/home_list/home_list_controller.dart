@@ -6,4 +6,7 @@ class HomeListController extends GetxController {
   void onLikePressed() {
     ++like;
   }
+  //  void Post() {
+  //     Get.toNamed('/notify');
+  //   }
 }

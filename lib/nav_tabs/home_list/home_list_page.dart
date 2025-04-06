@@ -1,19 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:numdao_finalproject/nav_tabs/home_list/home_list_controller.dart';
+import 'package:numdao_finalproject/post/post_item.dart';
 import 'package:numdao_finalproject/widgets/appbar_widget.dart';
+import 'package:numdao_finalproject/widgets/post_item_widget.dart';
 
 class HomeListPage extends GetView<HomeListController> {
   const HomeListPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // final item = PostItem(
+    //     ownerName: 'เอกภพ สิทธิวรรณธนะ',
+    //     ownerImage: 'assets/avatars/kanin',
+    //     bookTitle: 'On Leadership: Lessons for the \n21st Century',
+    //     authorName: "ไทระ โคเก็น, ภาณุพันธ์ ปัญญาใจ",
+    //     bookImage: 'assets/images/books/2.jpg',
+    //     like: 20,
+    //     createdDate: "ส. at 17:22",
+    //     sizeBookImage: 18);
     return Scaffold(
       backgroundColor: Color.fromRGBO(27, 27, 27, 1),
       appBar: AppbarWidget(),
       body: SingleChildScrollView(
         child: Column(
           children: [
+            //PostItemWidget(item: item)
+
+            //-----------------------------------------------------------------------------
+
+            //-----------------------------------------------------------------------------
             _itemRated(
                 context,
                 'Kanin Nitiwong',
