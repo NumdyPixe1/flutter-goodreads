@@ -1,0 +1,84 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:numdao_finalproject/pages/app/app_controller.dart';
+import 'package:numdao_finalproject/widgets/more_widget.dart';
+
+class AppPage extends GetView<AppController> {
+  const AppPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        floatingActionButton: MoreWidget(),
+        backgroundColor: Color.fromRGBO(27, 27, 27, 1),
+        body: Obx(() => IndexedStack(
+              index: controller.selectedIndex,
+              children: [
+                Navigator(
+                  key: Get.nestedKey(0),
+                  initialRoute: '/homelist',
+                  onGenerateRoute: controller.onGenerateRoute,
+                ),
+                Navigator(
+                  key: Get.nestedKey(1),
+                  initialRoute: '/mybookslist',
+                  onGenerateRoute: controller.onGenerateRoute,
+                ),
+                Navigator(
+                  key: Get.nestedKey(2),
+                  initialRoute: '/discoverlist',
+                  onGenerateRoute: controller.onGenerateRoute,
+                ),
+                Navigator(
+                  key: Get.nestedKey(3),
+                  initialRoute: '/searchlist',
+                  onGenerateRoute: controller.onGenerateRoute,
+                ),
+                Navigator(
+                  key: Get.nestedKey(4),
+                  initialRoute: '/searchlist',
+                  onGenerateRoute: controller.onGenerateRoute,
+                ),
+                // ElevatedButton(
+                //     onPressed: controller.onMorePressed, child: Text(''))
+              ],
+            )),
+        bottomNavigationBar: Obx(() => BottomNavigationBar(
+              onTap: controller.onBottomNavigationBarItemTap,
+              currentIndex: controller.selectedIndex,
+              type: BottomNavigationBarType.fixed,
+              selectedItemColor: Colors.white,
+              unselectedItemColor: Colors.white,
+              backgroundColor: Color.fromRGBO(40, 35, 31, 1),
+              items: [
+                BottomNavigationBarItem(
+                  label: 'Home',
+                  icon: Icon(controller.selectedIndex == 0
+                      ? Icons.home
+                      : Icons.home_outlined),
+                ),
+                BottomNavigationBarItem(
+                  label: 'My Books',
+                  icon: Icon(controller.selectedIndex == 1
+                      ? Icons.collections_bookmark
+                      : Icons.collections_bookmark_outlined),
+                ),
+                BottomNavigationBarItem(
+                    label: 'Discover',
+                    icon: Icon(controller.selectedIndex == 2
+                        ? Icons.compass_calibration
+                        : Icons.compass_calibration_outlined)),
+                BottomNavigationBarItem(
+                    label: 'Search',
+                    icon: Icon(controller.selectedIndex == 3
+                        ? Icons.search
+                        : Icons.search_outlined)),
+                // BottomNavigationBarItem(
+                //     label: 'More',
+                //     icon: Icon(controller.selectedIndex == 4
+                //         ? Icons.more_horiz
+                //         : Icons.more_horiz_outlined))
+              ],
+            )));
+  }
+}

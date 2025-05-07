@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:numdao_finalproject/post/post_item.dart';
+import 'package:numdao_finalproject/services/models/post_item.dart';
 
 class PostItemWidget extends GetView {
   const PostItemWidget({super.key, required this.item});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:numdao_finalproject/app/app_controller.dart';
+import 'package:numdao_finalproject/pages/app/app_controller.dart';
 
 class AppbarWidget extends GetView<AppController>
     implements PreferredSizeWidget {
