@@ -4,6 +4,8 @@ import 'package:numdao_finalproject/pages/welcome/welcome_controller.dart';
 
 class WelcomePage extends GetView<WelcomeController> {
   const WelcomePage({super.key});
+  static const title = 'Welcome';
+  static const route = '/';
   @override
   Widget build(BuildContext context) {
     return Scaffold(

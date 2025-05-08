@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:numdao_finalproject/pages/app/app_page.dart';
 import 'package:numdao_finalproject/services/account_service.dart';
 
 class SignUpController extends GetxController {
@@ -68,7 +69,7 @@ class SignUpController extends GetxController {
     super.onInit();
   }
 
-  void onSignUpPressed() async {
+  Future<void> onSignUpPressed() async {
     if (!formKey.currentState!.validate()) {
       return;
     }
@@ -76,7 +77,7 @@ class SignUpController extends GetxController {
       _isLoading.value = true;
       await _accountService.signUp(
           nameController.text, emailController.text, passwordController.text);
-      Get.offAllNamed('/app');
+      Get.offAllNamed(AppPage.route);
       Get.snackbar('Sign up successfully', '');
     } catch (e) {
       Get.snackbar('Sign up failed', '$e');

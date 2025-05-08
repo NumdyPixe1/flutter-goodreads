@@ -17,7 +17,7 @@ class AccountServiceMock extends GetxService implements AccountService {
     if (email != 'demo@hotmail.com') {
       throw 'Invalid email';
     }
-    if (password != '123abc') {
+    if (password != 'demo123') {
       throw 'Invalid password';
     }
     await _secureStorage.write(
@@ -26,8 +26,9 @@ class AccountServiceMock extends GetxService implements AccountService {
 
   @override
   Future<void> signIn(String email, String password) async {
+    //api call
     await 3.delay();
-    if (email != 'demo@hotmail.com' || password != '123abc') {
+    if (email != 'demo@hotmail.com' || password != 'demo123') {
       throw 'Incorrect email or password';
     }
     await _secureStorage.write(

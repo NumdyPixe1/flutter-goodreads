@@ -6,11 +6,13 @@ import 'package:get/get.dart';
 import 'package:numdao_finalproject/pages/app/app_binding.dart';
 import 'package:numdao_finalproject/pages/notify/notify_binding.dart';
 import 'package:numdao_finalproject/pages/notify/notify_page.dart';
+import 'package:numdao_finalproject/pages/settings/settings_controller.dart';
 // import 'package:numdao_finalproject/post/post_service.dart';
 // import 'package:numdao_finalproject/post/post_service_mock.dart';
 import 'package:numdao_finalproject/pages/signin/signin_binding.dart';
 import 'package:numdao_finalproject/pages/signup/signup_binding.dart';
 import 'package:numdao_finalproject/pages/signup/signup_page.dart';
+import 'package:numdao_finalproject/pages/themes.dart';
 import 'package:numdao_finalproject/pages/welcome/welcome_binding.dart';
 import 'package:numdao_finalproject/pages/app/app_page.dart';
 import 'package:numdao_finalproject/pages/signin/signin_page.dart';
@@ -26,29 +28,36 @@ void main() {
     enabled: !kReleaseMode,
     builder: (context) => GetMaterialApp(
       title: 'Good read App project',
-      initialRoute: '/',
+      initialRoute: WelcomePage.route,
       getPages: [
         GetPage(
-            name: '/', page: () => WelcomePage(), binding: WelcomeBinding()),
+            name: WelcomePage.route,
+            page: () => WelcomePage(),
+            binding: WelcomeBinding()),
         GetPage(
-            name: '/signin',
+            name: SignInPage.route,
             page: () => SignInPage(),
             binding: SignInBinding()),
         GetPage(
-            name: '/signup',
+            name: SignUpPage.route,
             page: () => SignUpPage(),
             binding: SignUpBinding()),
         GetPage(
-          name: '/app',
+          name: AppPage.route,
           page: () => AppPage(),
           binding: AppBinding(),
         ),
         GetPage(
-          name: '/notify',
+          name: NotifyPage.route,
           page: () => NotifyPage(),
           binding: NotifyBinding(),
         ),
       ],
+      //theme
+      theme: lightTheme,
+      darkTheme: darkTheme,
+      // themeMode: SettingsController(),
+      //la
     ),
   ));
 }

@@ -10,7 +10,6 @@ class ElevatedButtonWidget extends GetView {
     return ElevatedButton(
       onPressed: () {},
       style: ElevatedButton.styleFrom(
-        backgroundColor: Color.fromRGBO(255, 255, 255, 0),
         fixedSize: Size(280, 60),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(2),
@@ -19,10 +18,9 @@ class ElevatedButtonWidget extends GetView {
       ),
       child: Text(
         title,
-        style: Theme.of(context)
-            .textTheme
-            .titleMedium
-            ?.copyWith(color: Color.fromRGBO(254, 232, 208, 1)),
+        style: Theme.of(context).textTheme.titleMedium?.copyWith(
+            //color: Color.fromRGBO(254, 232, 208, 1)
+            ),
       ),
     );
   }

@@ -15,7 +15,7 @@ class ShelvesWidget extends GetView {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        _listItem(title, subtitle, book1, book2, book3)
+        _listItem(title, subtitle, book1, book2, book3, context)
         // _listItem('Read', '23 books', 'assets/images/books/4.jpg',
         //     'assets/images/books/8.jpg', 'assets/images/books/9.jpg'),
         // _listItem(
@@ -40,8 +40,8 @@ Widget bookImage(String imagePath) {
   );
 }
 
-InkWell _listItem(
-    String title, String subtitle, String book1, String book2, String book3) {
+InkWell _listItem(String title, String subtitle, String book1, String book2,
+    String book3, context) {
   return InkWell(
     onTap: () {},
     child: Container(
@@ -67,14 +67,11 @@ InkWell _listItem(
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                title,
-                style: TextStyle(color: Colors.white, fontSize: 14),
-              ),
-              Text(
-                subtitle,
-                style: TextStyle(color: Colors.white70, fontSize: 14),
-              )
+              Text(title,
+                  // color: Colors.white,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith()),
+              Text(subtitle,
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith()),
             ],
           ),
         ],

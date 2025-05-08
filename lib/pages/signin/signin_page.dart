@@ -4,7 +4,8 @@ import 'package:numdao_finalproject/pages/signin/signin_controller.dart';
 
 class SignInPage extends GetView<SignInController> {
   const SignInPage({super.key});
-
+  static const title = 'Sign in';
+  static const route = '/signin';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,36 +29,46 @@ class SignInPage extends GetView<SignInController> {
               SizedBox(
                 height: 16,
               ),
-              TextFormField(
-                key: controller.emailKey,
-                onChanged: null,
-                validator: controller.emailValidator,
-                style: TextStyle(color: Colors.white),
-                decoration: InputDecoration(
-                    focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white)),
-                    floatingLabelStyle:
-                        TextStyle(color: Color.fromRGBO(60, 143, 132, 1)),
-                    labelText: 'E-mail'),
+              Obx(
+                () => TextFormField(
+                  key: controller.emailKey,
+                  onChanged: null,
+                  validator: controller.emailValidator,
+                  controller: controller.emailController,
+                  enabled: !controller.isLoading,
+                  style: TextStyle(color: Colors.white),
+                  decoration: InputDecoration(
+                      focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white)),
+                      floatingLabelStyle:
+                          TextStyle(color: Color.fromRGBO(60, 143, 132, 1)),
+                      labelText: 'E-mail'),
+                ),
               ),
               SizedBox(
                 height: 48,
               ),
-              TextFormField(
-                  obscureText: true,
-                  key: controller.passwordKey,
-                  onChanged: controller.onPasswordChanged,
-                  validator: controller.passwordValidator,
-                  style: TextStyle(color: Colors.white),
-                  decoration: InputDecoration(
-                    // suffixIcon:
-                    //   ,
-                    focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white)),
-                    labelText: 'Goodreads password',
-                    floatingLabelStyle:
-                        TextStyle(color: Color.fromRGBO(60, 143, 132, 1)),
-                  )),
+              Obx(
+                () => TextFormField(
+                    obscureText: true,
+                    key: controller.passwordKey,
+                    onChanged: controller.onPasswordChanged,
+                    validator: controller.passwordValidator,
+                    controller: controller.passwordController,
+                    enabled: !controller.isLoading,
+
+                    //------------
+                    style: TextStyle(color: Colors.white),
+                    decoration: InputDecoration(
+                      // suffixIcon:
+                      //   ,
+                      focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white)),
+                      labelText: 'Goodreads password',
+                      floatingLabelStyle:
+                          TextStyle(color: Color.fromRGBO(60, 143, 132, 1)),
+                    )),
+              ),
               SizedBox(
                 height: 24,
               ),
@@ -74,23 +85,27 @@ class SignInPage extends GetView<SignInController> {
               SizedBox(
                 height: 24,
               ),
-              SizedBox(
-                height: 55,
-                width: 300,
-                child: ElevatedButton(
-                    onPressed: controller.onSignInPressed,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Color.fromRGBO(95, 77, 63, 1),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(3)),
-                    ),
-                    child: Text(
-                      'Sign in',
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleMedium
-                          ?.copyWith(color: Color.fromRGBO(245, 235, 225, 1)),
-                    )),
+              Obx(
+                () => SizedBox(
+                  height: 55,
+                  width: 300,
+                  child: ElevatedButton(
+                      onPressed: controller.isLoading
+                          ? null
+                          : controller.onSignInPressed,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color.fromRGBO(95, 77, 63, 1),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(3)),
+                      ),
+                      child: Text(
+                        'Sign in',
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleMedium
+                            ?.copyWith(color: Color.fromRGBO(245, 235, 225, 1)),
+                      )),
+                ),
               ),
               SizedBox(
                 height: 16,

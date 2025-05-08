@@ -9,7 +9,6 @@ class DiscoverListPage extends GetView<DiscoverListController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppbarWidget(),
-      backgroundColor: Color.fromRGBO(27, 27, 27, 1),
     );
   }
 }

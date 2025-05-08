@@ -4,7 +4,8 @@ import 'package:numdao_finalproject/pages/signup/signup_controller.dart';
 
 class SignUpPage extends GetView<SignUpController> {
   const SignUpPage({super.key});
-
+  static const title = 'Sign up';
+  static const route = '/signup';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,12 +72,45 @@ class SignUpPage extends GetView<SignUpController> {
               SizedBox(
                 height: 24,
               ),
-              Obx(
-                () => TextFormField(
-                  key: controller.emailKey,
-                  onChanged: null,
-                  validator: controller.emailValidator,
-                  controller: controller.emailController,
+              TextFormField(
+                key: controller.emailKey,
+                onChanged: null,
+                validator: controller.emailValidator,
+                controller: controller.emailController,
+                enabled: !controller.isLoading,
+                //-------------------------------------
+                style: TextStyle(color: Colors.white),
+                decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: const Color.fromARGB(255, 255, 255, 255)),
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(50),
+                        borderSide: BorderSide(
+                            color: const Color.fromARGB(255, 255, 255, 255))),
+                    errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(50),
+                        borderSide: BorderSide(
+                            color: const Color.fromARGB(255, 255, 255, 255))),
+                    focusedErrorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(50),
+                        borderSide: BorderSide(
+                            color: const Color.fromARGB(255, 255, 255, 255))),
+                    prefixIcon: null,
+                    border: OutlineInputBorder(),
+                    hintText: 'Your email address'),
+              ),
+              SizedBox(
+                height: 24,
+              ),
+              TextFormField(
+                  obscureText: true,
+                  key: controller.passwordKey,
+                  onChanged: controller.onPasswordChanged,
+                  validator: controller.passwordValidator,
+                  controller: controller.passwordController,
                   enabled: !controller.isLoading,
                   //-------------------------------------
                   style: TextStyle(color: Colors.white),
@@ -100,47 +134,7 @@ class SignUpPage extends GetView<SignUpController> {
                               color: const Color.fromARGB(255, 255, 255, 255))),
                       prefixIcon: null,
                       border: OutlineInputBorder(),
-                      hintText: 'Your email address'),
-                ),
-              ),
-              SizedBox(
-                height: 24,
-              ),
-              Obx(
-                () => TextFormField(
-                    obscureText: true,
-                    key: controller.passwordKey,
-                    onChanged: controller.onPasswordChanged,
-                    validator: controller.passwordValidator,
-                    controller: controller.passwordController,
-                    enabled: !controller.isLoading,
-                    //-------------------------------------
-                    style: TextStyle(color: Colors.white),
-                    decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: const Color.fromARGB(255, 255, 255, 255)),
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(50),
-                            borderSide: BorderSide(
-                                color:
-                                    const Color.fromARGB(255, 255, 255, 255))),
-                        errorBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(50),
-                            borderSide: BorderSide(
-                                color:
-                                    const Color.fromARGB(255, 255, 255, 255))),
-                        focusedErrorBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(50),
-                            borderSide: BorderSide(
-                                color:
-                                    const Color.fromARGB(255, 255, 255, 255))),
-                        prefixIcon: null,
-                        border: OutlineInputBorder(),
-                        hintText: 'Create account')),
-              ),
+                      hintText: 'Create account')),
               SizedBox(
                 height: 14,
               ),
@@ -156,36 +150,32 @@ class SignUpPage extends GetView<SignUpController> {
               SizedBox(
                 height: 14,
               ),
-              Obx(
-                () => SizedBox(
-                  width: 400,
-                  height: 40,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        side:
-                            BorderSide(color: Color.fromRGBO(111, 111, 111, 1)),
-                        // Color.fromRGBO(111, 111, 111, 0.5)
-                        backgroundColor: Color.fromRGBO(40, 35, 31, 1)),
-                    onPressed: controller.isLoading
-                        ? null
-                        : controller.onSignUpPressed,
-                    child: Text(
-                      'Create account',
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleMedium
-                          ?.copyWith(color: Colors.white),
-                    ),
-                    // controller.isLoading
-                    //     ? SizedBox(
-                    //         width: 20.0,
-                    //         height: 20.0,
-                    //         child: CircularProgressIndicator(),
-                    //       )
-                    //     : SizedBox()
-                    //],
-                    //)
+              SizedBox(
+                width: 400,
+                height: 40,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      side: BorderSide(color: Color.fromRGBO(111, 111, 111, 1)),
+                      // Color.fromRGBO(111, 111, 111, 0.5)
+                      backgroundColor: Color.fromRGBO(40, 35, 31, 1)),
+                  onPressed:
+                      controller.isLoading ? null : controller.onSignUpPressed,
+                  child: Text(
+                    'Create account',
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleMedium
+                        ?.copyWith(color: Colors.white),
                   ),
+                  // controller.isLoading
+                  //     ? SizedBox(
+                  //         width: 20.0,
+                  //         height: 20.0,
+                  //         child: CircularProgressIndicator(),
+                  //       )
+                  //     : SizedBox()
+                  //],
+                  //)
                 ),
               ),
               SizedBox(

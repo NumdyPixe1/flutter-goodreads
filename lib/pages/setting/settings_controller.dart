@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-class ShelvesController extends GetxController {
+class SettingsController extends GetxController {
   void onNotifyPressed() {
     Get.toNamed('/notify');
   }

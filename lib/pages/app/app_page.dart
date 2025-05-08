@@ -5,12 +5,12 @@ import 'package:numdao_finalproject/widgets/more_widget.dart';
 
 class AppPage extends GetView<AppController> {
   const AppPage({super.key});
-
+  static const title = 'App';
+  static const route = '/app';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         floatingActionButton: MoreWidget(),
-        backgroundColor: Color.fromRGBO(27, 27, 27, 1),
         body: Obx(() => IndexedStack(
               index: controller.selectedIndex,
               children: [
@@ -47,9 +47,6 @@ class AppPage extends GetView<AppController> {
               onTap: controller.onBottomNavigationBarItemTap,
               currentIndex: controller.selectedIndex,
               type: BottomNavigationBarType.fixed,
-              selectedItemColor: Colors.white,
-              unselectedItemColor: Colors.white,
-              backgroundColor: Color.fromRGBO(40, 35, 31, 1),
               items: [
                 BottomNavigationBarItem(
                   label: 'Home',

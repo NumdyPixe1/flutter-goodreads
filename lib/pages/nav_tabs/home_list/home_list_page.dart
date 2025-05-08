@@ -7,7 +7,8 @@ import 'package:numdao_finalproject/widgets/post_item_widget.dart';
 
 class HomeListPage extends GetView<HomeListController> {
   const HomeListPage({super.key});
-
+  static const title = 'Home';
+  static const route = '/home';
   @override
   Widget build(BuildContext context) {
     // final item = PostItem(
@@ -20,7 +21,6 @@ class HomeListPage extends GetView<HomeListController> {
     //     createdDate: "ส. at 17:22",
     //     sizeBookImage: 18);
     return Scaffold(
-      backgroundColor: Color.fromRGBO(27, 27, 27, 1),
       appBar: AppbarWidget(),
       body: SingleChildScrollView(
         child: Column(
@@ -72,7 +72,7 @@ class HomeListPage extends GetView<HomeListController> {
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),
       child: Container(
-          color: Color.fromRGBO(40, 35, 31, 1),
+          color: Theme.of(context).colorScheme.surfaceContainer,
           child: Column(
             children: [
               SizedBox(
@@ -110,8 +110,8 @@ class HomeListPage extends GetView<HomeListController> {
                                 .textTheme
                                 .titleSmall
                                 ?.copyWith(
-                                  color: Colors.white,
-                                ),
+                                    //color: Colors.white,
+                                    ),
                           ),
                           SizedBox(
                             width: 10,
@@ -175,9 +175,8 @@ class HomeListPage extends GetView<HomeListController> {
                           style: Theme.of(context)
                               .textTheme
                               .titleMedium
-                              ?.copyWith(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w700),
+                              ?.copyWith(fontWeight: FontWeight.w700),
+                          // color: Colors.white,
                         ),
                       ),
                       SizedBox(
@@ -190,9 +189,7 @@ class HomeListPage extends GetView<HomeListController> {
                             style: Theme.of(context)
                                 .textTheme
                                 .titleMedium
-                                ?.copyWith(
-                                  color: Colors.white,
-                                ),
+                                ?.copyWith(),
                           ),
                           TextButton(
                               onPressed: () {},
@@ -220,7 +217,9 @@ class HomeListPage extends GetView<HomeListController> {
                               style: Theme.of(context)
                                   .textTheme
                                   .titleSmall
-                                  ?.copyWith(color: Colors.white)),
+                                  ?.copyWith(
+                                      //color: Colors.white
+                                      )),
                         ),
                       ),
                     ],
@@ -283,7 +282,7 @@ class HomeListPage extends GetView<HomeListController> {
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),
       child: Container(
-        color: Color.fromRGBO(40, 35, 31, 1),
+        color: Theme.of(context).colorScheme.surfaceContainer,
         child: Column(
           children: [
             SizedBox(
@@ -318,7 +317,7 @@ class HomeListPage extends GetView<HomeListController> {
                           'is reading',
                           style:
                               Theme.of(context).textTheme.titleSmall?.copyWith(
-                                    color: Colors.white,
+                                  //color: Colors.white,
                                   ),
                         ),
                       ],
@@ -354,8 +353,10 @@ class HomeListPage extends GetView<HomeListController> {
                   children: [
                     Text(
                       bookName,
-                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          color: Colors.white, fontWeight: FontWeight.w700),
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleMedium
+                          ?.copyWith(fontWeight: FontWeight.w700),
                     ),
                     SizedBox(
                       height: 15,
@@ -366,7 +367,7 @@ class HomeListPage extends GetView<HomeListController> {
                           'by',
                           style:
                               Theme.of(context).textTheme.titleMedium?.copyWith(
-                                    color: Colors.white,
+                                  //color: Colors.white,
                                   ),
                         ),
                         TextButton(
@@ -395,7 +396,9 @@ class HomeListPage extends GetView<HomeListController> {
                             style: Theme.of(context)
                                 .textTheme
                                 .titleSmall
-                                ?.copyWith(color: Colors.white)),
+                                ?.copyWith(
+                                    //color: Colors.white
+                                    )),
                       ),
                     ),
                   ],
