@@ -11,6 +11,7 @@ ThemeData get lightTheme => ThemeData.from(
             centerTitle: false,
             backgroundColor: Color.fromRGBO(244, 241, 234, 1)),
         textTheme: TextTheme(
+            headlineSmall: TextStyle(color: Color.fromRGBO(57, 57, 57, 1)),
             titleLarge: TextStyle(color: Color.fromRGBO(57, 57, 57, 1)),
             titleMedium: TextStyle(color: Color.fromRGBO(57, 57, 57, 1)),
             titleSmall: TextStyle(color: Color.fromRGBO(57, 57, 57, 1))),
@@ -32,6 +33,7 @@ ThemeData get darkTheme => ThemeData.from(
             centerTitle: false,
             backgroundColor: Color.fromRGBO(40, 31, 31, 1)),
         textTheme: TextTheme(
+            headlineSmall: TextStyle(color: Colors.white),
             titleLarge: TextStyle(color: Colors.white),
             titleMedium: TextStyle(color: Colors.white),
             titleSmall: TextStyle(color: Color.fromRGBO(254, 232, 208, 1))),

@@ -8,8 +8,10 @@ import 'package:numdao_finalproject/pages/nav_tabs/mybooks_list/mybooks_list_bin
 import 'package:numdao_finalproject/pages/nav_tabs/mybooks_list/mybooks_list_page.dart';
 import 'package:numdao_finalproject/pages/nav_tabs/search_list/search_list_binding.dart';
 import 'package:numdao_finalproject/pages/nav_tabs/search_list/search_list_page.dart';
-import 'package:numdao_finalproject/pages/shelves/shelves_binding.dart';
-import 'package:numdao_finalproject/pages/shelves/shelves_pages.dart';
+import 'package:numdao_finalproject/pages/notify/notify_binding.dart';
+import 'package:numdao_finalproject/pages/notify/notify_page.dart';
+import 'package:numdao_finalproject/pages/shelves_and_tag/shelves_binding.dart';
+import 'package:numdao_finalproject/pages/shelves_and_tag/shelves_pages.dart';
 
 class AppController extends GetxController {
   final _selectedIndex = 0.obs;
@@ -39,6 +41,12 @@ class AppController extends GetxController {
         case 3:
           rootRoute = '/searchlist';
           break;
+        case 4:
+        //   rootRoute = '/shelves';
+        //   break;
+        // case 5:
+        //   rootRoute = '/notify';
+        //   break;
       }
 
       //ดึงหน้า stack ออกไปทีล่ะอัน จนกว่าจะเจอ root route
@@ -52,42 +60,51 @@ class AppController extends GetxController {
     }
   }
 
-  void onNotifyPressed() {
-    Get.toNamed('/notify');
-  }
-
   Route? onGenerateRoute(RouteSettings setting) {
-    if (setting.name == '/homelist') {
+    if (setting.name == HomeListPage.route) {
       return GetPageRoute(
           settings: setting,
           page: () => HomeListPage(),
           binding: HomeListBinding());
     }
-    if (setting.name == '/mybookslist') {
+    if (setting.name == MybooksListPage.route) {
       return GetPageRoute(
           settings: setting,
           page: () => MybooksListPage(),
           binding: MybooksListBinding());
     }
-    if (setting.name == '/discoverlist') {
+    if (setting.name == DiscoverListPage.route) {
       return GetPageRoute(
           settings: setting,
           page: () => DiscoverListPage(),
           binding: DiscoverListBinding());
     }
-    if (setting.name == '/searchlist') {
+    if (setting.name == SearchListPage.route) {
       return GetPageRoute(
           settings: setting,
           page: () => SearchListPage(),
           binding: SearchListBinding());
     }
-    if (setting.name == '/shelves') {
+    if (setting.name == ShelvesPages.route) {
       return GetPageRoute(
           settings: setting,
           page: () => ShelvesPages(),
           binding: ShelvesBinding());
     }
+    if (setting.name == NotifyPage.route) {
+      return GetPageRoute(
+          settings: setting,
+          page: () => NotifyPage(),
+          binding: NotifyBinding());
+    }
 
     return null;
   }
+
+  void onOpenPageInsideTabPressed() {
+    Get.toNamed(NotifyPage.route, id: selectedIndex);
+  }
+  // void onNotifyPressed() {
+  //   Get.toNamed('/notify');
+  // }
 }

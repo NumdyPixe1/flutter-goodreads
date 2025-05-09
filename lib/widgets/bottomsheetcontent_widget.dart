@@ -7,7 +7,10 @@ class BottomsheetcontentWidget extends GetView {
   @override
   Widget build(BuildContext context) {
     final items = [
-      {'icon': Icons.person, 'label': 'My profile'},
+      {
+        'icon': Icons.person,
+        'label': 'My profile',
+      },
       {'icon': Icons.group, 'label': 'Friends'},
       {'icon': Icons.groups, 'label': 'Groups'},
       {'icon': Icons.menu_book, 'label': 'Reading Challenge'},
@@ -34,26 +37,41 @@ class BottomsheetcontentWidget extends GetView {
             ),
             itemBuilder: (context, index) {
               final item = items[index];
-              return Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  CircleAvatar(
-                    radius: 36,
-                    backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-                    child: Icon(item['icon'] as IconData,
-                        color: Colors.orangeAccent, size: 28),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    item['label'] as String,
-                    style: const TextStyle(color: Colors.white, fontSize: 16),
-                    textAlign: TextAlign.center,
-                  ),
-                ],
-              );
+              return _gesturedetector();
+              // GestureDetector(
+              //   onTap: () {
+              //     print('กดแล้ว!');
+              //   },
+              //   child: Column(
+              //     mainAxisSize: MainAxisSize.min,
+              //     children: [
+              //       CircleAvatar(
+              //         radius: 36,
+              //         backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+              //         child: Icon(item['icon'] as IconData,
+              //             color: Colors.orangeAccent, size: 28),
+              //       ),
+              //       const SizedBox(height: 8),
+              //       Text(
+              //         item['label'] as String,
+              //         style: const TextStyle(color: Colors.white, fontSize: 16),
+              //         textAlign: TextAlign.center,
+              //       ),
+              //     ],
+              //   ),
+              // );
             },
           ),
         ],
+      ),
+    );
+  }
+
+  GestureDetector _gesturedetector() {
+    return GestureDetector(
+      onTap: () {},
+      child: Column(
+        children: [],
       ),
     );
   }

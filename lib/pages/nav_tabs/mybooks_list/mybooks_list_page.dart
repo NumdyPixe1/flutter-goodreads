@@ -9,6 +9,7 @@ import 'package:numdao_finalproject/widgets/text_button_underline_widget.dart';
 
 class MybooksListPage extends GetView<MybooksListController> {
   const MybooksListPage({super.key});
+  static const route = '/mybookslist';
 
   @override
   Widget build(BuildContext context) {

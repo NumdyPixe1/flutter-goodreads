@@ -1,46 +1,45 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:numdao_finalproject/pages/shelves/shelves_controller.dart';
+import 'package:numdao_finalproject/pages/app/app_controller.dart';
+import 'package:numdao_finalproject/pages/shelves_and_tag/shelves_controller.dart';
 import 'package:numdao_finalproject/widgets/shelves_widget.dart';
 
 class ShelvesPages extends GetView<ShelvesController> {
   const ShelvesPages({super.key});
+  static const route = '/shelves';
 
   @override
   Widget build(BuildContext context) {
+    final AppController appController = Get.find<AppController>();
+
     return Scaffold(
-        backgroundColor: Color.fromRGBO(27, 27, 27, 1),
         appBar: AppBar(
           actions: <Widget>[
             IconButton(
                 iconSize: 25,
-                color: Colors.white,
-                onPressed: controller.onNotifyPressed,
+                onPressed: appController.onOpenPageInsideTabPressed,
+                //controller.onNotifyPressed,
                 icon: Icon(Icons.notifications_none_rounded))
           ],
-          //controller.onNotifyPressed
           leading: BackButton(
             color: Colors.white,
           ),
-          backgroundColor: Color.fromRGBO(40, 35, 31, 1),
-          title: Text('All shelves & tags',
-              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                    color: Colors.white,
-                  )),
+          title: Text('appbar_title_shelves'.tr,
+              style: Theme.of(context).textTheme.headlineSmall?.copyWith()),
         ),
         body: Column(
           children: [
-            ShelvesWidget('Read', '23 books', 'assets/images/books/4.jpg',
+            ShelvesWidget('read'.tr, '23 books', 'assets/images/books/4.jpg',
                 'assets/images/books/8.jpg', 'assets/images/books/9.jpg'),
             ShelvesWidget(
-              'Currently Reading',
+              'currently_reading'.tr,
               '10 books',
               'assets/images/books/7.jpg',
               'assets/images/books/2.jpg',
               'assets/images/books/11.jpg',
             ),
             ShelvesWidget(
-                'Want to Read',
+                'want_to_read'.tr,
                 '18 books',
                 'assets/images/books/1.jpg',
                 'assets/images/books/10.jpg',

@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:numdao_finalproject/pages/app/app_controller.dart';
+import 'package:numdao_finalproject/pages/nav_tabs/discover_list/discover_list_page.dart';
+import 'package:numdao_finalproject/pages/nav_tabs/home_list/home_list_page.dart';
+import 'package:numdao_finalproject/pages/nav_tabs/mybooks_list/mybooks_list_page.dart';
+import 'package:numdao_finalproject/pages/nav_tabs/search_list/search_list_page.dart';
 import 'package:numdao_finalproject/widgets/more_widget.dart';
 
 class AppPage extends GetView<AppController> {
   const AppPage({super.key});
-  static const title = 'App';
   static const route = '/app';
   @override
   Widget build(BuildContext context) {
@@ -16,29 +19,25 @@ class AppPage extends GetView<AppController> {
               children: [
                 Navigator(
                   key: Get.nestedKey(0),
-                  initialRoute: '/homelist',
+                  initialRoute: HomeListPage.route,
                   onGenerateRoute: controller.onGenerateRoute,
                 ),
                 Navigator(
                   key: Get.nestedKey(1),
-                  initialRoute: '/mybookslist',
+                  initialRoute: MybooksListPage.route,
                   onGenerateRoute: controller.onGenerateRoute,
                 ),
                 Navigator(
                   key: Get.nestedKey(2),
-                  initialRoute: '/discoverlist',
+                  initialRoute: DiscoverListPage.route,
                   onGenerateRoute: controller.onGenerateRoute,
                 ),
                 Navigator(
                   key: Get.nestedKey(3),
-                  initialRoute: '/searchlist',
+                  initialRoute: SearchListPage.route,
                   onGenerateRoute: controller.onGenerateRoute,
                 ),
-                Navigator(
-                  key: Get.nestedKey(4),
-                  initialRoute: '/searchlist',
-                  onGenerateRoute: controller.onGenerateRoute,
-                ),
+
                 // ElevatedButton(
                 //     onPressed: controller.onMorePressed, child: Text(''))
               ],

@@ -7,8 +7,7 @@ import 'package:numdao_finalproject/widgets/post_item_widget.dart';
 
 class HomeListPage extends GetView<HomeListController> {
   const HomeListPage({super.key});
-  static const title = 'Home';
-  static const route = '/home';
+  static const route = '/homelist';
   @override
   Widget build(BuildContext context) {
     // final item = PostItem(
@@ -233,7 +232,7 @@ class HomeListPage extends GetView<HomeListController> {
                 children: [
                   TextButton(
                       onPressed: controller.onLikePressed,
-                      child: Text('Like',
+                      child: Text('like'.tr,
                           style: Theme.of(context)
                               .textTheme
                               .titleSmall
@@ -241,7 +240,7 @@ class HomeListPage extends GetView<HomeListController> {
                                   color: Color.fromRGBO(60, 143, 132, 1)))),
                   TextButton(
                       onPressed: () {},
-                      child: Text('Comment',
+                      child: Text('comment'.tr,
                           style: Theme.of(context)
                               .textTheme
                               .titleSmall

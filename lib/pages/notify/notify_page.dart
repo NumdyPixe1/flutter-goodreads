@@ -4,7 +4,6 @@ import 'package:numdao_finalproject/pages/notify/notify_controller.dart';
 
 class NotifyPage extends GetView<NotifyController> {
   const NotifyPage({super.key});
-  static const title = 'Notify';
   static const route = '/notify';
   @override
   Widget build(BuildContext context) {
@@ -32,7 +31,7 @@ class NotifyPage extends GetView<NotifyController> {
                         ?.copyWith() //color: Color.fromRGBO(254, 232, 208, 1),
                     )
               ]),
-          title: Text('Notifications Center',
+          title: Text('appbar_title_notify'.tr,
               style: Theme.of(context)
                   .textTheme
                   .titleLarge
@@ -61,7 +60,7 @@ class NotifyPage extends GetView<NotifyController> {
           ),
           Align(
             alignment: Alignment(0.0, -0.9),
-            child: Text('You have no messages.',
+            child: Text('messages_text'.tr,
                 style: Theme.of(context)
                     .textTheme
                     .titleMedium
@@ -69,18 +68,12 @@ class NotifyPage extends GetView<NotifyController> {
           ),
           Align(
               alignment: Alignment(0.0, -0.9),
-              child: Text('You currently have no friend requests',
+              child: Text('friend_requests'.tr,
                   style: Theme.of(context)
                       .textTheme
                       .titleMedium
                       ?.copyWith(color: Color.fromARGB(128, 255, 255, 255))))
         ]),
-        /*  floatingActionButton: IconButton(
-          onPressed: controller.onBackPressed,
-          icon: Icon(Icons.arrow_back),
-          color: Colors.white,
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.startTop,*/
       ),
     );
   }

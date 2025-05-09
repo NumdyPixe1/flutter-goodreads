@@ -6,6 +6,7 @@ import 'package:numdao_finalproject/widgets/text_button_underline_widget.dart';
 
 class SearchListPage extends GetView<SearchListController> {
   const SearchListPage({super.key});
+  static const route = '/searchlist';
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +17,13 @@ class SearchListPage extends GetView<SearchListController> {
           padding: const EdgeInsets.all(18.0),
           child: Column(
             children: [
-              TextButtonUnderlineWidget('expolre by genre', () {}),
+              TextButtonUnderlineWidget('expolre_by_genre'.tr, () {}),
               // _textButtonItem(context, ''),
               SizedBox(
                 height: 10,
               ),
               Text(
-                'See new releases, most-read books, quotes, lists, and more in these popular genres.',
+                'see_new_releases'.tr,
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(),
                 textAlign: TextAlign.center,
               ),

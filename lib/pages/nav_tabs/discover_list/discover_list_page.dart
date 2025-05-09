@@ -5,6 +5,8 @@ import 'package:numdao_finalproject/widgets/appbar_widget.dart';
 
 class DiscoverListPage extends GetView<DiscoverListController> {
   const DiscoverListPage({super.key});
+  static const route = '/discoverlist';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
