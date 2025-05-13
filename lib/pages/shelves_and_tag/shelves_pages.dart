@@ -17,7 +17,7 @@ class ShelvesPages extends GetView<ShelvesController> {
           actions: <Widget>[
             IconButton(
                 iconSize: 25,
-                onPressed: appController.onOpenPageInsideTabPressed,
+                onPressed: appController.onOpenNotifyPageInsideTabPressed,
                 //controller.onNotifyPressed,
                 icon: Icon(Icons.notifications_none_rounded))
           ],

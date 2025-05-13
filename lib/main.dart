@@ -7,6 +7,8 @@ import 'package:numdao_finalproject/pages/app/app_binding.dart';
 import 'package:numdao_finalproject/pages/languages.dart';
 import 'package:numdao_finalproject/pages/notify/notify_binding.dart';
 import 'package:numdao_finalproject/pages/notify/notify_page.dart';
+import 'package:numdao_finalproject/pages/setting/settings_binding.dart';
+import 'package:numdao_finalproject/pages/setting/settings_page.dart';
 // import 'package:numdao_finalproject/post/post_service.dart';
 // import 'package:numdao_finalproject/post/post_service_mock.dart';
 import 'package:numdao_finalproject/pages/signin/signin_binding.dart';
@@ -21,6 +23,7 @@ import 'package:numdao_finalproject/services/post_service.dart';
 import 'package:numdao_finalproject/services/post_service_mock.dart';
 import 'package:numdao_finalproject/services/account_service.dart';
 import 'package:numdao_finalproject/services/account_service_mock.dart';
+import 'package:numdao_finalproject/widgets/show_languages_alert_widget.dart';
 
 void main() {
   _init();
@@ -47,6 +50,11 @@ void main() {
             page: () => AppPage(),
             binding: AppBinding(),
           ),
+          GetPage(
+            name: SettingsPage.route,
+            page: () => SettingsPage(),
+            binding: SettingsBinding(),
+          ),
         ],
         //Theme
         theme: lightTheme,
@@ -59,6 +67,7 @@ void main() {
 }
 
 void _init() {
+  Get.put(ShowLanguagesAlertWidget());
   Get.put(FlutterSecureStorage(), permanent: true);
   Get.lazyPut<AccountService>(() => AccountServiceMock());
   Get.lazyPut<PostService>(() => PostServiceMock());

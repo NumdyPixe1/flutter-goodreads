@@ -41,7 +41,7 @@ class AppbarWidget extends GetView<AppController>
         actions: <Widget>[
           IconButton(
               iconSize: 25,
-              onPressed: controller.onOpenPageInsideTabPressed,
+              onPressed: controller.onOpenNotifyPageInsideTabPressed,
               //controller.onNotifyPressed,
               icon: Icon(Icons.notifications_none_rounded)),
         ]);

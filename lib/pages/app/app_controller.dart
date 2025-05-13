@@ -18,6 +18,10 @@ class AppController extends GetxController {
   int get selectedIndex => _selectedIndex.value;
 
   void onBottomNavigationBarItemTap(int index) {
+    if (index == 4) {
+      onOpenMorePageInsideTabPressed();
+      return;
+    }
     if (selectedIndex == index) {
       final navKey = Get.keys[index];
       //หาตำแหน่ง route ของ user จาก nav stack
@@ -42,11 +46,6 @@ class AppController extends GetxController {
           rootRoute = '/searchlist';
           break;
         case 4:
-        //   rootRoute = '/shelves';
-        //   break;
-        // case 5:
-        //   rootRoute = '/notify';
-        //   break;
       }
 
       //ดึงหน้า stack ออกไปทีล่ะอัน จนกว่าจะเจอ root route
@@ -101,10 +100,85 @@ class AppController extends GetxController {
     return null;
   }
 
-  void onOpenPageInsideTabPressed() {
+  void onOpenNotifyPageInsideTabPressed() {
     Get.toNamed(NotifyPage.route, id: selectedIndex);
   }
-  // void onNotifyPressed() {
-  //   Get.toNamed('/notify');
-  // }
+
+//--------------------------------------------------------
+  final items = [
+    {
+      'icon': Icons.person_outline,
+      'label': 'My profile',
+    },
+    {'icon': Icons.group_add_outlined, 'label': 'Friends', 'route': '(){}'},
+    {'icon': Icons.groups_3_outlined, 'label': 'Groups', 'route': '(){}'},
+    {
+      'icon': Icons.menu_book_outlined,
+      'label': 'Reading Challenge',
+      'route': '(){}'
+    },
+    {
+      'icon': Icons.card_giftcard_outlined,
+      'label': 'Giveaways',
+      'route': '(){}'
+    },
+    {
+      'icon': Icons.star_border_outlined,
+      'label': 'Top picks for you',
+      'route': '(){}'
+    },
+    {
+      'icon': Icons.emoji_events_outlined,
+      'label': '2024 Choice Awards',
+      'route': '(){}'
+    },
+    {'icon': Icons.camera_alt_outlined, 'label': 'Scan books', 'route': '(){}'},
+    {'icon': Icons.settings_outlined, 'label': 'Settings', 'route': '() {}'},
+    {'icon': Icons.help_outline, 'label': 'Help', 'route': '(){}'},
+  ];
+  void onOpenMorePageInsideTabPressed() {
+    Get.bottomSheet(
+      Container(
+          height: 500,
+          width: double.infinity,
+          color: Colors.white,
+          child: Padding(
+              padding: EdgeInsets.all(24),
+              child: GridView.builder(
+                  itemCount: items.length,
+                  physics: NeverScrollableScrollPhysics(),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    mainAxisSpacing: 20,
+                    crossAxisSpacing: 10,
+                    childAspectRatio: 0.85,
+                  ),
+                  itemBuilder: (BuildContext context, int index) {
+                    final item = items[index];
+                    return GestureDetector(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          CircleAvatar(
+                            radius: 36,
+                            child: Icon(item['icon'] as IconData,
+                                color: Colors.orangeAccent, size: 28),
+                          ),
+                          SizedBox(height: 8),
+                          Text(
+                            item['label'] as String,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 16),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
+                    );
+                  }))),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(0)),
+      ),
+      isScrollControlled: false,
+    );
+  }
 }

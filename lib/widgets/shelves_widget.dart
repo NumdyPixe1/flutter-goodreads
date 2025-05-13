@@ -14,22 +14,7 @@ class ShelvesWidget extends GetView {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
-        _listItem(title, subtitle, book1, book2, book3, context)
-        // _listItem('Read', '23 books', 'assets/images/books/4.jpg',
-        //     'assets/images/books/8.jpg', 'assets/images/books/9.jpg'),
-        // _listItem(
-        //   'Currently Reading',
-        //   '10 books',
-        //   'assets/images/books/7.jpg',
-        //   'assets/images/books/2.jpg',
-        //   'assets/images/books/11.jpg',
-        // ),
-        // _listItem('Want to Read', '18 books', 'assets/images/books/1.jpg',
-        //     'assets/images/books/10.jpg', 'assets/images/books/3.jpg'),
-        // _listItem('Manga', '8 books', 'assets/images/books/5.jpg',
-        //     'assets/images/books/6.jpg', 'assets/images/books/7.jpg')
-      ],
+      children: [_listItem(title, subtitle, book1, book2, book3, context)],
     );
   }
 }

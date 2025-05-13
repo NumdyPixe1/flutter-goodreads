@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:numdao_finalproject/pages/nav_tabs/mybooks_list/mybooks_list_controller.dart';
 import 'package:numdao_finalproject/widgets/appbar_widget.dart';
-import 'package:numdao_finalproject/widgets/categorybutton_widget.dart';
+import 'package:numdao_finalproject/widgets/button_widget.dart';
 import 'package:numdao_finalproject/widgets/elevated_button_widget.dart';
 import 'package:numdao_finalproject/widgets/shelves_widget.dart';
 import 'package:numdao_finalproject/widgets/text_button_underline_widget.dart';
@@ -101,13 +101,13 @@ class MybooksListPage extends GetView<MybooksListController> {
                       style:
                           Theme.of(context).textTheme.titleMedium?.copyWith()),
                   Divider(),
-                  CategorybuttonWidget('Art'),
-                  CategorybuttonWidget('Biography'),
-                  CategorybuttonWidget('Business'),
-                  CategorybuttonWidget('Chick-lit'),
-                  CategorybuttonWidget('Children\'s'),
-                  CategorybuttonWidget('Christian'),
-                  CategorybuttonWidget('Classics'),
+                  ButtonWidget('Art', () {}),
+                  ButtonWidget('Biography', () {}),
+                  ButtonWidget('Business', () {}),
+                  ButtonWidget('Chick-lit', () {}),
+                  ButtonWidget('Children\'s', () {}),
+                  ButtonWidget('Christian', () {}),
+                  ButtonWidget('Classics', () {}),
                 ],
               ),
             ],

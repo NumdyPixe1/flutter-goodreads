@@ -13,7 +13,7 @@ class AppPage extends GetView<AppController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        floatingActionButton: MoreWidget(),
+        //floatingActionButton: MoreWidget(),
         body: Obx(() => IndexedStack(
               index: controller.selectedIndex,
               children: [
@@ -69,11 +69,11 @@ class AppPage extends GetView<AppController> {
                     icon: Icon(controller.selectedIndex == 3
                         ? Icons.search
                         : Icons.search_outlined)),
-                // BottomNavigationBarItem(
-                //     label: 'More',
-                //     icon: Icon(controller.selectedIndex == 4
-                //         ? Icons.more_horiz
-                //         : Icons.more_horiz_outlined))
+                BottomNavigationBarItem(
+                    label: 'More',
+                    icon: Icon(controller.selectedIndex == 4
+                        ? Icons.more_horiz
+                        : Icons.more_horiz_outlined))
               ],
             )));
   }
