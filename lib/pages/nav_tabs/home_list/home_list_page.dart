@@ -411,12 +411,12 @@ class HomeListPage extends GetView<HomeListController> {
               children: [
                 TextButton(
                     onPressed: controller.onLikePressed,
-                    child: Text('Like',
+                    child: Text('like'.tr,
                         style: Theme.of(context).textTheme.titleSmall?.copyWith(
                             color: Color.fromRGBO(60, 143, 132, 1)))),
                 TextButton(
                     onPressed: () {},
-                    child: Text('Comment',
+                    child: Text('comment'.tr,
                         style: Theme.of(context).textTheme.titleSmall?.copyWith(
                             color: Color.fromRGBO(60, 143, 132, 1)))),
                 Icon(

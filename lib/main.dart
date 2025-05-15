@@ -3,12 +3,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:numdao_finalproject/pages/app/app_binding.dart';
 import 'package:numdao_finalproject/pages/languages.dart';
-import 'package:numdao_finalproject/pages/notify/notify_binding.dart';
-import 'package:numdao_finalproject/pages/notify/notify_page.dart';
-import 'package:numdao_finalproject/pages/setting/settings_binding.dart';
-import 'package:numdao_finalproject/pages/setting/settings_page.dart';
+import 'package:numdao_finalproject/pages/settings/settings_binding.dart';
+import 'package:numdao_finalproject/pages/settings/settings_controller.dart';
+import 'package:numdao_finalproject/pages/settings/settings_page.dart';
 // import 'package:numdao_finalproject/post/post_service.dart';
 // import 'package:numdao_finalproject/post/post_service_mock.dart';
 import 'package:numdao_finalproject/pages/signin/signin_binding.dart';
@@ -25,8 +25,8 @@ import 'package:numdao_finalproject/services/account_service.dart';
 import 'package:numdao_finalproject/services/account_service_mock.dart';
 import 'package:numdao_finalproject/widgets/show_languages_alert_widget.dart';
 
-void main() {
-  _init();
+Future<void> main() async {
+  await _init();
   runApp(DevicePreview(
     enabled: !kReleaseMode,
     builder: (context) => GetMaterialApp(
@@ -62,13 +62,15 @@ void main() {
         // themeMode: SettingsController(),
         //Languages
         translations: Languages(),
+        locale: SettingsController.getLocale(),
         fallbackLocale: Locale('en', 'US')),
   ));
 }
 
-void _init() {
-  Get.put(ShowLanguagesAlertWidget());
+Future<void> _init() async {
+  await GetStorage.init();
+  Get.lazyPut(() => GetStorage());
   Get.put(FlutterSecureStorage(), permanent: true);
   Get.lazyPut<AccountService>(() => AccountServiceMock());
-  Get.lazyPut<PostService>(() => PostServiceMock());
+  // Get.lazyPut<PostService>(() => PostServiceMock());
 }

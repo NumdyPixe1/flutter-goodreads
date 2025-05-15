@@ -10,7 +10,7 @@ class Languages extends Translations {
           'friend_requests': 'You currently have no friend requests',
           'expolre_by_genre': 'expolre by genre',
           'see_new_releases':
-              'See new releases, most-read books, quotes, lists, and more in these popular genres.',
+              'See new releases, most-read books, quotes, lists and more in these popular genres.',
           'search_hint_text': 'Title,author or ISBN',
           'read': 'Read',
           'currently_reading': 'Currently Reading',
@@ -19,7 +19,7 @@ class Languages extends Translations {
           'Comment': 'comment',
           'settings_title': 'Settings & Support',
         },
-        'jp_JP': {
+        'ja_JP': {
           'appbar_title_shelves': 'すべての本棚とタグ',
           'appbar_title_notify': '通知センター',
           'messages_text': 'You have no messages.',

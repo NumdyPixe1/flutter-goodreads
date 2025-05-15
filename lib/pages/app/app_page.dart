@@ -5,7 +5,6 @@ import 'package:numdao_finalproject/pages/nav_tabs/discover_list/discover_list_p
 import 'package:numdao_finalproject/pages/nav_tabs/home_list/home_list_page.dart';
 import 'package:numdao_finalproject/pages/nav_tabs/mybooks_list/mybooks_list_page.dart';
 import 'package:numdao_finalproject/pages/nav_tabs/search_list/search_list_page.dart';
-import 'package:numdao_finalproject/widgets/more_widget.dart';
 
 class AppPage extends GetView<AppController> {
   const AppPage({super.key});

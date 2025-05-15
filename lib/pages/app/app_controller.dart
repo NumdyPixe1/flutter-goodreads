@@ -10,8 +10,11 @@ import 'package:numdao_finalproject/pages/nav_tabs/search_list/search_list_bindi
 import 'package:numdao_finalproject/pages/nav_tabs/search_list/search_list_page.dart';
 import 'package:numdao_finalproject/pages/notify/notify_binding.dart';
 import 'package:numdao_finalproject/pages/notify/notify_page.dart';
+import 'package:numdao_finalproject/pages/settings/settings_binding.dart';
+import 'package:numdao_finalproject/pages/settings/settings_page.dart';
 import 'package:numdao_finalproject/pages/shelves_and_tag/shelves_binding.dart';
 import 'package:numdao_finalproject/pages/shelves_and_tag/shelves_pages.dart';
+import 'package:numdao_finalproject/widgets/bottom_sheet_widget.dart';
 
 class AppController extends GetxController {
   final _selectedIndex = 0.obs;
@@ -96,6 +99,12 @@ class AppController extends GetxController {
           page: () => NotifyPage(),
           binding: NotifyBinding());
     }
+    if (setting.name == SettingsPage.route) {
+      return GetPageRoute(
+          settings: setting,
+          page: () => SettingsPage(),
+          binding: SettingsBinding());
+    }
 
     return null;
   }
@@ -104,81 +113,17 @@ class AppController extends GetxController {
     Get.toNamed(NotifyPage.route, id: selectedIndex);
   }
 
-//--------------------------------------------------------
-  final items = [
-    {
-      'icon': Icons.person_outline,
-      'label': 'My profile',
-    },
-    {'icon': Icons.group_add_outlined, 'label': 'Friends', 'route': '(){}'},
-    {'icon': Icons.groups_3_outlined, 'label': 'Groups', 'route': '(){}'},
-    {
-      'icon': Icons.menu_book_outlined,
-      'label': 'Reading Challenge',
-      'route': '(){}'
-    },
-    {
-      'icon': Icons.card_giftcard_outlined,
-      'label': 'Giveaways',
-      'route': '(){}'
-    },
-    {
-      'icon': Icons.star_border_outlined,
-      'label': 'Top picks for you',
-      'route': '(){}'
-    },
-    {
-      'icon': Icons.emoji_events_outlined,
-      'label': '2024 Choice Awards',
-      'route': '(){}'
-    },
-    {'icon': Icons.camera_alt_outlined, 'label': 'Scan books', 'route': '(){}'},
-    {'icon': Icons.settings_outlined, 'label': 'Settings', 'route': '() {}'},
-    {'icon': Icons.help_outline, 'label': 'Help', 'route': '(){}'},
-  ];
+  void onOpenSettingsPageInsideTabPressed() {
+    Get.toNamed(SettingsPage.route, id: selectedIndex);
+  }
+
   void onOpenMorePageInsideTabPressed() {
     Get.bottomSheet(
-      Container(
-          height: 500,
-          width: double.infinity,
-          color: Colors.white,
-          child: Padding(
-              padding: EdgeInsets.all(24),
-              child: GridView.builder(
-                  itemCount: items.length,
-                  physics: NeverScrollableScrollPhysics(),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                    mainAxisSpacing: 20,
-                    crossAxisSpacing: 10,
-                    childAspectRatio: 0.85,
-                  ),
-                  itemBuilder: (BuildContext context, int index) {
-                    final item = items[index];
-                    return GestureDetector(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          CircleAvatar(
-                            radius: 36,
-                            child: Icon(item['icon'] as IconData,
-                                color: Colors.orangeAccent, size: 28),
-                          ),
-                          SizedBox(height: 8),
-                          Text(
-                            item['label'] as String,
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 16),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      ),
-                    );
-                  }))),
+      BottomSheetWidget(),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(0)),
       ),
-      isScrollControlled: false,
+      isScrollControlled: true,
     );
   }
 }

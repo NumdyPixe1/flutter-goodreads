@@ -13,6 +13,13 @@ class MybooksListPage extends GetView<MybooksListController> {
 
   @override
   Widget build(BuildContext context) {
+    final items = [
+      {'label': 'Kindle Notes & Highlights', 'onPressed': () {}},
+      {'label': 'Reading Challenge', 'onPressed': () {}},
+      {'label': '2024 Year in Books', 'onPressed': () {}},
+      {'label': 'Edit your favourite ganres', 'onPressed': () {}},
+      {'label': 'Add your favourite genres', 'onPressed': () {}},
+    ];
     return Scaffold(
       appBar: AppbarWidget(),
       body: SingleChildScrollView(
@@ -101,13 +108,20 @@ class MybooksListPage extends GetView<MybooksListController> {
                       style:
                           Theme.of(context).textTheme.titleMedium?.copyWith()),
                   Divider(),
-                  ButtonWidget('Art', () {}),
-                  ButtonWidget('Biography', () {}),
-                  ButtonWidget('Business', () {}),
-                  ButtonWidget('Chick-lit', () {}),
-                  ButtonWidget('Children\'s', () {}),
-                  ButtonWidget('Christian', () {}),
-                  ButtonWidget('Classics', () {}),
+                  GridView.builder(
+                      shrinkWrap: true,
+                      itemCount: items.length,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 1, childAspectRatio: 7),
+                      itemBuilder: (BuildContext context, int index) {
+                        final item = items[index];
+
+                        return ButtonWidget(item['label'] as String,
+                            item['onPressed'] as VoidCallback);
+                      }
+                      // GenresButtonWidget('Adventure')
+                      ),
+                  // ButtonWidget('Kubdke ', () {}),
                 ],
               ),
             ],

@@ -38,28 +38,4 @@ class ButtonWidget extends GetView {
               ],
             )));
   }
-
-  // InkWell _categorybuttonItem(context, String title, var onTap) {
-  //   return InkWell(
-  //     onTap: onTap,
-  //     child: Column(
-  //       children: [
-  //         Container(
-  //           padding: EdgeInsets.all(12),
-  //           child: Row(
-  //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-  //             children: [
-  //               Text(
-  //                 title,
-  //                 style: Theme.of(context).textTheme.titleMedium,
-  //               ),
-  //               SizedBox(width: 12),
-  //               Icon(Icons.chevron_right),
-  //             ],
-  //           ),
-  //         ),
-  //         Divider(height: 1, color: Colors.grey.shade300, thickness: 1),
-  //       ],
-  //     ),
-  //   );
 }

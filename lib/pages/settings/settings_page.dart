@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:numdao_finalproject/pages/app/app_controller.dart';
-import 'package:numdao_finalproject/pages/setting/settings_controller.dart';
+import 'package:numdao_finalproject/pages/settings/settings_controller.dart';
 import 'package:numdao_finalproject/widgets/button_widget.dart';
 import 'package:numdao_finalproject/widgets/show_languages_alert_widget.dart';
 
@@ -25,10 +25,7 @@ class SettingsPage extends GetView<SettingsController> {
             style: Theme.of(context).textTheme.headlineSmall?.copyWith()),
       ),
       body: Column(children: [
-        ButtonWidget(
-            'Language',
-            () =>
-                Get.find<ShowLanguagesAlertWidget>().showLanguagesAlertWidget),
+        ButtonWidget('Language', controller.showLanguagesAlert),
         ButtonWidget('Theme', () {})
       ]),
       // CategorybuttonWidget(

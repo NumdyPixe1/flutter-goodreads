@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   # add Getx lib
   get:
+  get_storage:
   flutter_secure_storage:
   device_preview:
   
