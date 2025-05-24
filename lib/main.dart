@@ -50,11 +50,11 @@ Future<void> main() async {
             page: () => AppPage(),
             binding: AppBinding(),
           ),
-          GetPage(
-            name: SettingsPage.route,
-            page: () => SettingsPage(),
-            binding: SettingsBinding(),
-          ),
+          // GetPage(
+          //   name: SettingsPage.route,
+          //   page: () => SettingsPage(),
+          //   binding: SettingsBinding(),
+          // ),
         ],
         //Theme
         theme: lightTheme,
@@ -62,7 +62,7 @@ Future<void> main() async {
         // themeMode: SettingsController(),
         //Languages
         translations: Languages(),
-        locale: SettingsController.getLocale(),
+        //locale: SettingsController.getLocale(),
         fallbackLocale: Locale('en', 'US')),
   ));
 }
