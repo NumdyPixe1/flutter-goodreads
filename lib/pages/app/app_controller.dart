@@ -114,6 +114,7 @@ class AppController extends GetxController {
   }
 
   void onOpenSettingsPageInsideTabPressed() {
+    Get.back();
     Get.toNamed(SettingsPage.route, id: selectedIndex);
   }
 

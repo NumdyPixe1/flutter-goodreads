@@ -36,7 +36,7 @@ class MybooksListPage extends GetView<MybooksListController> {
               SizedBox(
                 height: 24,
               ),
-              ElevatedButtonWidget("Update yoyr reading progress"),
+              ElevatedButtonWidget("Update yoyr reading progress", 60),
               ShelvesWidget('Read', '23 books', 'assets/images/books/4.jpg',
                   'assets/images/books/8.jpg', 'assets/images/books/9.jpg'),
               ShelvesWidget(
@@ -98,7 +98,7 @@ class MybooksListPage extends GetView<MybooksListController> {
               SizedBox(
                 height: 24,
               ),
-              ElevatedButtonWidget("+ Create a new tag or shelf"),
+              ElevatedButtonWidget("+ Create a new tag or shelf", 60),
               SizedBox(
                 height: 24,
               ),

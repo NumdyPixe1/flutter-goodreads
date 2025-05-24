@@ -14,7 +14,10 @@ class TextButtonUnderlineWidget extends GetView {
         child: Column(
           children: [
             Text(titleButton.toUpperCase(),
-                style: Theme.of(context).textTheme.titleMedium?.copyWith()),
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium
+                    ?.copyWith(fontWeight: FontWeight.bold)),
             SizedBox(
               height: 4,
             ),

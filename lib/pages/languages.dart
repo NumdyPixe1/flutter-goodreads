@@ -4,6 +4,7 @@ class Languages extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
         'en_US': {
+          'label_display_language_name': 'Language',
           'appbar_title_shelves': 'All shelves & tags',
           'appbar_title_notify': 'Notifications Center',
           'messages_text': 'You have no messages.',
@@ -16,10 +17,11 @@ class Languages extends Translations {
           'currently_reading': 'Currently Reading',
           'want_to_read': 'Want to Read',
           'like': 'Like',
-          'Comment': 'comment',
+          'comment': 'Comment',
           'settings_title': 'Settings & Support',
         },
         'ja_JP': {
+          'label_display_language_name': 'Language',
           'appbar_title_shelves': 'すべての本棚とタグ',
           'appbar_title_notify': '通知センター',
           'messages_text': 'You have no messages.',
@@ -32,7 +34,7 @@ class Languages extends Translations {
           'currently_reading': '今読んでいる本',
           'want_to_read': '読みたい本',
           'like': 'いいね!',
-          'Comment': ' コメント',
+          'comment': ' コメント',
         }
       };
 }

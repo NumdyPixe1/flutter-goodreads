@@ -5,6 +5,7 @@ import 'package:numdao_finalproject/widgets/appbar_widget.dart';
 import 'package:numdao_finalproject/widgets/button_widget.dart';
 import 'package:numdao_finalproject/widgets/genres_button_widget.dart';
 import 'package:numdao_finalproject/widgets/text_button_underline_widget.dart';
+import 'package:numdao_finalproject/widgets/text_button_widget.dart';
 
 class SearchListPage extends GetView<SearchListController> {
   const SearchListPage({super.key});
@@ -29,6 +30,25 @@ class SearchListPage extends GetView<SearchListController> {
       {'label': 'Children\'s', 'onPressed': () {}},
       {'label': 'Christian', 'onPressed': () {}},
       {'label': 'Classics', 'onPressed': () {}},
+      {'label': 'Comics', 'onPressed': () {}},
+      {'label': 'Contemporary', 'onPressed': () {}},
+      {'label': 'Cookbooks', 'onPressed': () {}},
+      {'label': 'Crime', 'onPressed': () {}},
+      {'label': 'Fantasy', 'onPressed': () {}},
+      {'label': 'Fiction', 'onPressed': () {}},
+      {'label': 'Graphic Novels', 'onPressed': () {}},
+      {'label': 'Historical Fiction', 'onPressed': () {}},
+      {'label': 'History', 'onPressed': () {}},
+      {'label': 'Horror', 'onPressed': () {}},
+      {'label': 'Humour', 'onPressed': () {}},
+      {'label': 'LGBTQ', 'onPressed': () {}},
+      {'label': 'Manga', 'onPressed': () {}},
+      {'label': 'Memoir', 'onPressed': () {}},
+      {'label': 'Music', 'onPressed': () {}},
+      {'label': 'Mystery', 'onPressed': () {}},
+      {'label': 'Non-fiction', 'onPressed': () {}},
+      {'label': 'Paranormal', 'onPressed': () {}},
+      {'label': 'Philosophy', 'onPressed': () {}},
     ];
     return Scaffold(
       appBar: AppbarWidget(),
@@ -85,6 +105,7 @@ class SearchListPage extends GetView<SearchListController> {
                   }
                   // GenresButtonWidget('Adventure')
                   ),
+              TextButtonWidget('explore more genres', () {})
             ],
           ),
         ),

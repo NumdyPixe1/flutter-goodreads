@@ -12,53 +12,70 @@ class BottomSheetWidget extends GetView<AppController> {
       {
         'icon': Icons.group_add_outlined,
         'label': 'Friends',
-        'onPressed': () {}
+        'onPressed': () {
+          Get.back();
+        }
       },
       {'icon': Icons.groups_3_outlined, 'label': 'Groups', 'onPressed': () {}},
       {
         'icon': Icons.menu_book_outlined,
         'label': 'Reading Challenge',
-        'onPressed': () {}
+        'onPressed': () {
+          Get.back();
+        }
       },
       {
         'icon': Icons.card_giftcard_outlined,
         'label': 'Giveaways',
-        'onPressed': () {}
+        'onPressed': () {
+          Get.back();
+        }
       },
       {
         'icon': Icons.star_border_outlined,
         'label': 'Top picks for you',
-        'onPressed': () {}
+        'onPressed': () {
+          Get.back();
+        }
       },
       {
         'icon': Icons.emoji_events_outlined,
         'label': '2024 Choice Awards',
-        'onPressed': () {}
+        'onPressed': () {
+          Get.back();
+        }
       },
       {
         'icon': Icons.camera_alt_outlined,
         'label': 'Scan books',
-        'onPressed': () {}
+        'onPressed': () {
+          Get.back();
+        }
       },
       {
         'icon': Icons.settings_outlined,
         'label': 'Settings',
         'onPressed': controller.onOpenSettingsPageInsideTabPressed
       },
-      {'icon': Icons.help_outline, 'label': 'Help', 'onPressed': () {}},
+      {
+        'icon': Icons.help_outline,
+        'label': 'Help',
+        'onPressed': () {
+          Get.back();
+        }
+      },
     ];
 
     return Container(
         height: MediaQuery.of(context).size.height * 0.66,
+        color: Theme.of(context).colorScheme.surface,
         width: double.infinity,
-        color: Colors.white,
         child: Padding(
             padding: EdgeInsets.all(4),
             child: GridView.builder(
                 itemCount: items.length,
                 physics: NeverScrollableScrollPhysics(),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  //จำนวนแถว
                   crossAxisCount: 3,
                   mainAxisSpacing: 0,
                   crossAxisSpacing: 0,
