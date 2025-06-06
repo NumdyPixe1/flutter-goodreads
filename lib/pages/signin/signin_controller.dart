@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:numdao_finalproject/pages/app/app_page.dart';
 import 'package:numdao_finalproject/services/account_service.dart';
 
+//demo@hotmail.com
+//demo123
 class SignInController extends GetxController {
   final formKey = GlobalKey<FormState>();
 
@@ -60,12 +62,5 @@ class SignInController extends GetxController {
     } finally {
       _isLoading.value = false;
     }
-
-    // if (emailController.text == 'abc') {
-    //   Get.toNamed('/home');
-    //   Get.snackbar('Log in successfully', 'Welcome back');
-    // } else {
-    //   Get.snackbar('Log in fail', 'Incorrect username or password');
-    // }
   }
 }

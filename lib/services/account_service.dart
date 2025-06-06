@@ -6,6 +6,8 @@ abstract class AccountService {
   );
 
   Future<void> signIn(String email, String password);
+  Future<void> signInAuto();
+
   Future<bool> isSignedIn();
   Future<void> signOut();
 }

@@ -1,37 +1,35 @@
-// import 'package:flutter/material.dart';
-// import 'package:get/get.dart';
-// import 'package:get_storage/get_storage.dart';
-// import 'package:numdao_finalproject/pages/welcome/welcome_page.dart';
-// import 'package:numdao_finalproject/services/account_service.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:numdao_finalproject/pages/welcome/welcome_page.dart';
+import 'package:numdao_finalproject/services/account_service.dart';
 
-// class SettingsController extends GetxController {}
+class SettingsController extends GetxController {
+  //   static const _themeModeKey = 'themeMode';
+  //   static const _languageKey = 'language';
+  //late GetStorage _storage;
 
-// // class SettingsController extends GetxController {
-// //   static const _themeModeKey = 'themeMode';
-// //   static const _languageKey = 'language';
-// //   late GetStorage _storage;
+  //   final _currentThemeMode = Rx<ThemeMode?>(null);
+  //   ThemeMode? get currentThemeMode => _currentThemeMode.value;
 
-// //   final _currentThemeMode = Rx<ThemeMode?>(null);
-// //   ThemeMode? get currentThemeMode => _currentThemeMode.value;
+//     late Map<String, String> _availableLanguages;
+//     Map<String, String> get availableLanguages => _availableLanguages;
+//   late String? _currentLanguage;
+//    String? get currentLanguage => _currentLanguage;
+  late AccountService _accountService;
 
-// //   late Map<String, String> _availableLanguages;
-// //   Map<String, String> get availableLanguages => _availableLanguages;
-// //   late String? _currentLanguage;
-// //   String? get currentLanguage => _currentLanguage;
-// //   late AccountService _accountService;
-
-// //   @override
-// //   void onInit() {
-// //     _accountService = Get.find();
-// //     // _availableLanguages = Get.translations.map<String, String>((key, value) {
-// //     //   return MapEntry(key, value['label_display_language_name']!);
-// //     // });
-// //     _storage = Get.find<GetStorage>();
-// //     // //load current
-// //     // final curLocale = getLocale();
-// //     // _currentLanguage = '${curLocale.languageCode}_${curLocale.countryCode}';
-// //     super.onInit();
-// //   }
+  @override
+  void onInit() {
+    _accountService = Get.find();
+    // _availableLanguages = Get.translations.map<String, String>((key, value) {
+    //   return MapEntry(key, value['label_display_language_name']!);
+    // });
+    //   _storage = Get.find<GetStorage>();
+    // //load current
+    // final curLocale = getLocale();
+    // _currentLanguage = '${curLocale.languageCode}_${curLocale.countryCode}';
+    super.onInit();
+  }
 
 // //   Future<void> onThemeModeChanged(ThemeMode? value) async {
 // //     _currentThemeMode.value = value;
@@ -94,10 +92,10 @@
 // //   //   ));
 // //   // }
 
-// //   void onSignOutPressed() {
-// //     //await _accountService.logOut();
-// //     _accountService.signOut();
-// //     Get.snackbar('Log out successfully', 'See you again');
-// //     Get.offAllNamed(WelcomePage.route);
-// //   }
-// // }
+  void onSignOutPressed() {
+    //await _accountService.logOut();
+    _accountService.signOut();
+    Get.snackbar('Log out successfully', 'See you again');
+    Get.offAllNamed(WelcomePage.route);
+  }
+}

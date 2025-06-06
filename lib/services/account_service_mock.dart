@@ -36,6 +36,15 @@ class AccountServiceMock extends GetxService implements AccountService {
   }
 
   @override
+  Future<void> signInAuto() async {
+    //api call
+    await 3.delay();
+
+    await _secureStorage.write(
+        key: _accessTokenKey, value: 'demo_access_token');
+  }
+
+  @override
   Future<bool> isSignedIn() async {
     await 3.delay();
     var token = await _secureStorage.read(key: _accessTokenKey);

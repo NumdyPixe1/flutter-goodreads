@@ -74,7 +74,7 @@ Future<void> main() async {
 
 Future<void> _init() async {
   await GetStorage.init();
-  Get.lazyPut(() => GetStorage());
+  // Get.lazyPut(() => GetStorage());
   Get.put(FlutterSecureStorage(), permanent: true);
   Get.lazyPut<AccountService>(() => AccountServiceMock());
   // Get.lazyPut<PostService>(() => PostServiceMock());

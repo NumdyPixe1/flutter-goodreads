@@ -4,7 +4,6 @@ import 'package:numdao_finalproject/pages/nav_tabs/home_list/home_list_controlle
 import 'package:numdao_finalproject/services/models/post_item.dart';
 import 'package:numdao_finalproject/widgets/appbar_widget.dart';
 import 'package:numdao_finalproject/widgets/post_item_widget.dart';
-import 'package:numdao_finalproject/widgets/post_widget.dart';
 
 class HomeListPage extends GetView<HomeListController> {
   const HomeListPage({super.key});
@@ -19,7 +18,9 @@ class HomeListPage extends GetView<HomeListController> {
         "bookName": "On Leadership: Lessons for the \n21st Century",
         "authorName": "Tony Blair",
         "bookImage": "assets/images/books/2.jpg",
-        "sizeBookImage": 18
+        "sizeBookImage": 18,
+
+        // "url": controller.avatarList[1]['download_url']
       },
       {
         "userName": "Seamonkey",
@@ -27,7 +28,8 @@ class HomeListPage extends GetView<HomeListController> {
         "bookName": "บ้านพักใจโอบไออุ่นทะเล",
         "authorName": "Akio Morisawa",
         "bookImage": "assets/images/books/3.jpg",
-        "sizeBookImage": 14
+        "sizeBookImage": 14,
+        // "url": controller.avatarList[1]['download_url']
       },
       {
         "userName": "NumdyPixe1",
@@ -35,7 +37,8 @@ class HomeListPage extends GetView<HomeListController> {
         "bookName": "One Piece, \nVolume 1: Romance Dawn",
         "authorName": "Oda, Eiichiro",
         "bookImage": "assets/images/books/7.jpg",
-        "sizeBookImage": 3
+        "sizeBookImage": 3,
+        // "url": controller.avatarList[1]['download_url']
       }
     ];
     return Scaffold(
@@ -50,7 +53,8 @@ class HomeListPage extends GetView<HomeListController> {
                 'ชีวิตน่ะ...ไม่ต้องพยายามไปซะทุกเรื่องหรอกนะ',
                 'ไทระ โคเก็น, ภาณุพันธ์ ปัญญาใจ',
                 'assets/images/books/1.jpg',
-                14),
+                14,
+                3),
             ListView.builder(
               shrinkWrap: true,
               itemCount: items.length,
@@ -63,15 +67,12 @@ class HomeListPage extends GetView<HomeListController> {
                     item['bookName'] as String,
                     item['authorName'] as String,
                     item['bookImage'] as String,
-                    item['sizeBookImage'] as double);
+                    item['sizeBookImage'] as double,
+                    index);
               },
             ),
 
             //PostItemWidget(item: item)
-
-            //-----------------------------------------------------------------------------
-
-            //-----------------------------------------------------------------------------
           ],
         ),
       ),
@@ -79,14 +80,14 @@ class HomeListPage extends GetView<HomeListController> {
   }
 
   Padding _itemRated(
-    BuildContext context,
-    String userName,
-    String dateUpdate,
-    String bookName,
-    String authorName,
-    String bookImage,
-    double sizeBookImage,
-  ) {
+      BuildContext context,
+      String userName,
+      String dateUpdate,
+      String bookName,
+      String authorName,
+      String bookImage,
+      double sizeBookImage,
+      int index) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),
       child: Container(
@@ -235,9 +236,7 @@ class HomeListPage extends GetView<HomeListController> {
                               style: Theme.of(context)
                                   .textTheme
                                   .titleSmall
-                                  ?.copyWith(
-                                      //color: Colors.white
-                                      )),
+                                  ?.copyWith(color: Colors.white)),
                         ),
                       ),
                     ],
@@ -249,17 +248,21 @@ class HomeListPage extends GetView<HomeListController> {
               ),
               Row(
                 children: [
-                  TextButton(
-                      onPressed: controller.onLikePressed,
-                      child: Text('like'.tr,
+                  Obx(() => TextButton(
+                      onPressed: () => controller.toggleLike(index),
+                      child: Text(
+                          controller.isLiked(index) ? 'Unlike'.tr : 'like'.tr,
                           style: Theme.of(context)
                               .textTheme
                               .titleSmall
                               ?.copyWith(
-                                  color: Color.fromRGBO(60, 143, 132, 1)))),
+                                  color: Color.fromRGBO(60, 143, 132, 1))))),
+                  SizedBox(
+                    width: 10,
+                  ),
                   TextButton(
                       onPressed: () {},
-                      child: Text('comment'.tr,
+                      child: Text('Comment'.tr,
                           style: Theme.of(context)
                               .textTheme
                               .titleSmall
@@ -274,7 +277,7 @@ class HomeListPage extends GetView<HomeListController> {
                   ),
                   Obx(
                     () => Text(
-                      '${controller.like}',
+                      controller.likeCount(index).toString(),
                       style: TextStyle(color: Color.fromRGBO(60, 143, 132, 1)),
                     ),
                   )
@@ -289,14 +292,14 @@ class HomeListPage extends GetView<HomeListController> {
   }
 
   Padding _itemStatus(
-    BuildContext context,
-    String userName,
-    String dateUpdate,
-    String bookName,
-    String authorName,
-    String bookImage,
-    double sizeBookImage,
-  ) {
+      BuildContext context,
+      String userName,
+      String dateUpdate,
+      String bookName,
+      String authorName,
+      String bookImage,
+      double sizeBookImage,
+      int index) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),
       child: Container(
@@ -323,7 +326,7 @@ class HomeListPage extends GetView<HomeListController> {
                       return CircleAvatar(
                         radius: 24,
                         backgroundImage: NetworkImage(
-                          controller.avatarList[0]['download_url'],
+                          controller.avatarList[5]['download_url'],
                         ),
                       );
                     }
@@ -363,7 +366,8 @@ class HomeListPage extends GetView<HomeListController> {
                                 .textTheme
                                 .titleSmall
                                 ?.copyWith(
-                                  color: Colors.grey,
+                                  color:
+                                      const Color.fromARGB(255, 255, 255, 255),
                                 ))
                       ],
                     )
@@ -430,9 +434,7 @@ class HomeListPage extends GetView<HomeListController> {
                             style: Theme.of(context)
                                 .textTheme
                                 .titleSmall
-                                ?.copyWith(
-                                    //color: Colors.white
-                                    )),
+                                ?.copyWith(color: Colors.white)),
                       ),
                     ),
                   ],
@@ -444,11 +446,12 @@ class HomeListPage extends GetView<HomeListController> {
             ),
             Row(
               children: [
-                TextButton(
-                    onPressed: controller.onLikePressed,
-                    child: Text('like'.tr,
+                Obx(() => TextButton(
+                    onPressed: () => controller.toggleLike(index),
+                    child: Text(
+                        controller.isLiked(index) ? 'Unlike'.tr : 'like'.tr,
                         style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                            color: Color.fromRGBO(60, 143, 132, 1)))),
+                            color: Color.fromRGBO(60, 143, 132, 1))))),
                 TextButton(
                     onPressed: () {},
                     child: Text('comment'.tr,
@@ -463,7 +466,7 @@ class HomeListPage extends GetView<HomeListController> {
                 ),
                 Obx(
                   () => Text(
-                    '${controller.like}',
+                    controller.likeCount(index).toString(),
                     style: TextStyle(color: Color.fromRGBO(60, 143, 132, 1)),
                   ),
                 )

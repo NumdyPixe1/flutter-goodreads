@@ -99,12 +99,12 @@ class AppController extends GetxController {
           page: () => NotifyPage(),
           binding: NotifyBinding());
     }
-    // if (setting.name == SettingsPage.route) {
-    //   return GetPageRoute(
-    //       settings: setting,
-    //       page: () => SettingsPage(),
-    //       binding: SettingsBinding());
-    // }
+    if (setting.name == SettingsPage.route) {
+      return GetPageRoute(
+          settings: setting,
+          page: () => SettingsPage(),
+          binding: SettingsBinding());
+    }
 
     return null;
   }
@@ -115,7 +115,7 @@ class AppController extends GetxController {
 
   void onOpenSettingsPageInsideTabPressed() {
     Get.back();
-    // Get.toNamed(SettingsPage.route, id: selectedIndex);
+    Get.toNamed(SettingsPage.route, id: selectedIndex);
   }
 
   void onOpenMorePageInsideTabPressed() {

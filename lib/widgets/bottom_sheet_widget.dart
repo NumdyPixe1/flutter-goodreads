@@ -97,6 +97,7 @@ class BottomSheetWidget extends GetView<AppController> {
                           radius: 36,
                           child: Icon(item['icon'] as IconData,
                               color: Colors.orangeAccent, size: 28),
+                          backgroundColor: Color.fromRGBO(229, 229, 227, 1),
                         ),
                         SizedBox(height: 2),
                         Text(item['label'] as String,
