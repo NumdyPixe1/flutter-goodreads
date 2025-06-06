@@ -30,40 +30,45 @@ Future<void> main() async {
   runApp(DevicePreview(
     enabled: !kReleaseMode,
     builder: (context) => GetMaterialApp(
-        title: 'Good read App project',
-        initialRoute: WelcomePage.route,
-        getPages: [
-          GetPage(
-              name: WelcomePage.route,
-              page: () => WelcomePage(),
-              binding: WelcomeBinding()),
-          GetPage(
-              name: SignInPage.route,
-              page: () => SignInPage(),
-              binding: SignInBinding()),
-          GetPage(
-              name: SignUpPage.route,
-              page: () => SignUpPage(),
-              binding: SignUpBinding()),
-          GetPage(
-            name: AppPage.route,
-            page: () => AppPage(),
-            binding: AppBinding(),
-          ),
-          // GetPage(
-          //   name: SettingsPage.route,
-          //   page: () => SettingsPage(),
-          //   binding: SettingsBinding(),
-          // ),
-        ],
-        //Theme
-        theme: lightTheme,
-        darkTheme: darkTheme,
-        // themeMode: SettingsController(),
-        //Languages
-        translations: Languages(),
-        //locale: SettingsController.getLocale(),
-        fallbackLocale: Locale('en', 'US')),
+      title: 'Good read App project',
+      initialRoute: WelcomePage.route,
+      getPages: [
+        GetPage(
+            name: WelcomePage.route,
+            page: () => WelcomePage(),
+            binding: WelcomeBinding()),
+        GetPage(
+            name: SignInPage.route,
+            page: () => SignInPage(),
+            binding: SignInBinding()),
+        GetPage(
+            name: SignUpPage.route,
+            page: () => SignUpPage(),
+            binding: SignUpBinding()),
+        GetPage(
+          name: AppPage.route,
+          page: () => AppPage(),
+          binding: AppBinding(),
+        ),
+        // GetPage(
+        //   name: SettingsPage.route,
+        //   page: () => SettingsPage(),
+        //   binding: SettingsBinding(),
+        // ),
+      ],
+      //Theme
+      theme: lightTheme,
+      darkTheme: darkTheme,
+      //themeMode: SettingsController.getThemeMode(),
+      //Languages
+      //locale: SettingsController.getLocale(),
+      translations: Languages(), useInheritedMediaQuery: true,
+      // locale: Locale('ja', 'JP'),
+      builder: DevicePreview.appBuilder,
+
+      locale: DevicePreview.locale(context),
+      fallbackLocale: Locale('ja', 'JP'), // ภาษา fallback ถ้าไม่พบ
+    ),
   ));
 }
 

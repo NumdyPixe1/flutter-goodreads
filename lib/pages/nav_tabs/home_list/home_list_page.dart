@@ -4,31 +4,45 @@ import 'package:numdao_finalproject/pages/nav_tabs/home_list/home_list_controlle
 import 'package:numdao_finalproject/services/models/post_item.dart';
 import 'package:numdao_finalproject/widgets/appbar_widget.dart';
 import 'package:numdao_finalproject/widgets/post_item_widget.dart';
+import 'package:numdao_finalproject/widgets/post_widget.dart';
 
 class HomeListPage extends GetView<HomeListController> {
   const HomeListPage({super.key});
   static const route = '/homelist';
+
   @override
   Widget build(BuildContext context) {
-    // final item = PostItem(
-    //     ownerName: 'เอกภพ สิทธิวรรณธนะ',
-    //     ownerImage: 'assets/avatars/kanin',
-    //     bookTitle: 'On Leadership: Lessons for the \n21st Century',
-    //     authorName: "ไทระ โคเก็น, ภาณุพันธ์ ปัญญาใจ",
-    //     bookImage: 'assets/images/books/2.jpg',
-    //     like: 20,
-    //     createdDate: "ส. at 17:22",
-    //     sizeBookImage: 18);
+    final items = [
+      {
+        "userName": "เอกภพ สิทธิวรรณธนะ",
+        "dateUpdate": "พฤ. at 17:15",
+        "bookName": "On Leadership: Lessons for the \n21st Century",
+        "authorName": "Tony Blair",
+        "bookImage": "assets/images/books/2.jpg",
+        "sizeBookImage": 18
+      },
+      {
+        "userName": "Seamonkey",
+        "dateUpdate": "อา. at 20:45",
+        "bookName": "บ้านพักใจโอบไออุ่นทะเล",
+        "authorName": "Akio Morisawa",
+        "bookImage": "assets/images/books/3.jpg",
+        "sizeBookImage": 14
+      },
+      {
+        "userName": "NumdyPixe1",
+        "dateUpdate": "ส. at 00:00",
+        "bookName": "One Piece, \nVolume 1: Romance Dawn",
+        "authorName": "Oda, Eiichiro",
+        "bookImage": "assets/images/books/7.jpg",
+        "sizeBookImage": 3
+      }
+    ];
     return Scaffold(
       appBar: AppbarWidget(),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            //PostItemWidget(item: item)
-
-            //-----------------------------------------------------------------------------
-
-            //-----------------------------------------------------------------------------
             _itemRated(
                 context,
                 'Kanin Nitiwong',
@@ -37,22 +51,27 @@ class HomeListPage extends GetView<HomeListController> {
                 'ไทระ โคเก็น, ภาณุพันธ์ ปัญญาใจ',
                 'assets/images/books/1.jpg',
                 14),
-            _itemStatus(
-                context,
-                'เอกภพ สิทธิวรรณธนะ',
-                'พฤ. at 17:15',
-                'On Leadership: Lessons for the \n21st Century',
-                'Tony Blair',
-                'assets/images/books/2.jpg',
-                18),
-            _itemStatus(
-                context,
-                'Seamonkey',
-                'อา. at 20:45',
-                'บ้านพักใจโอบไออุ่นทะเล',
-                'Akio Morisawa',
-                'assets/images/books/3.jpg',
-                14),
+            ListView.builder(
+              shrinkWrap: true,
+              itemCount: items.length,
+              itemBuilder: (BuildContext context, int index) {
+                final item = items[index];
+                return _itemStatus(
+                    context,
+                    item['userName'] as String,
+                    item['dateUpdate'] as String,
+                    item['bookName'] as String,
+                    item['authorName'] as String,
+                    item['bookImage'] as String,
+                    item['sizeBookImage'] as double);
+              },
+            ),
+
+            //PostItemWidget(item: item)
+
+            //-----------------------------------------------------------------------------
+
+            //-----------------------------------------------------------------------------
           ],
         ),
       ),
@@ -290,9 +309,25 @@ class HomeListPage extends GetView<HomeListController> {
             Row(
               children: [
                 Padding(padding: EdgeInsets.all(8.0)),
-                CircleAvatar(
-                  backgroundImage: NetworkImage(
-                      'https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U'),
+                Obx(
+                  () {
+                    //Loading
+                    if (controller.isLoading.value ||
+                        controller.avatarList.isEmpty) {
+                      return const CircleAvatar(
+                        radius: 24,
+                        child: CircularProgressIndicator(strokeWidth: 2),
+                      );
+                    } else {
+                      //Load Completed
+                      return CircleAvatar(
+                        radius: 24,
+                        backgroundImage: NetworkImage(
+                          controller.avatarList[0]['download_url'],
+                        ),
+                      );
+                    }
+                  },
                 ),
                 SizedBox(
                   width: 15,
